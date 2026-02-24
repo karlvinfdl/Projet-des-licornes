@@ -1,0 +1,117 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+/* ===================================== */
+/* ============== LANDING DEBUT========= */
+/* ===================================== */
+
+/* ===================================== */
+/* ============== LANDING FIN=========== */
+/* ===================================== */
+
+/* ===================================== */
+/* =============== EQUIPE DEBUT========= */
+/* ===================================== */
+/* public/css/equipe.css */
+
+.team-page {
+    background: url('../images/fond_equipe2.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Alignement des personnages sur une ligne de sol */
+.team-container {
+    display: flex;
+    align-items: flex-end; 
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Rendu Pixel Art propre */
+.pixel-art {
+    image-rendering: pixelated;
+    width: 110px; 
+    height: auto;
+    display: block;
+}
+
+/* Style spécifique pour le leader au centre */
+.leader .pixel-art {
+    width: 170px; /* Plus imposant comme sur la maquette */
+}
+
+.name-tag {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-family: 'Courier New', Courier, monospace; /* Style un peu rétro/code */
+    font-weight: bold;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Boutons style "Pill" */
+.actions {
+    display: flex;
+    gap: 30px;
+}
+
+.btn-custom {
+    padding: 12px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: all 0.2s ease-in-out;
+    border: 3px solid transparent;
+}
+
+.btn-white {
+    background-color: white;
+    color: #d63384; /* Rose pour le texte */
+}
+
+.btn-pink {
+    background-color: #d63384;
+    color: white;
+    border-color: #fff;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+/* ===================================== */
+/* =============== EQUIPE FIN=========== */
+/* ===================================== */
+
+/* ===================================== */
+/* ================= FIN DEBUT========== */
+/* ===================================== */
+
+/* ===================================== */
+/* ================= FIN FIN============ */
+/* ===================================== */
+
+/* ===================================== */
+/* ===== RESPONSIVE DEBUT=============== */
+/* ===================================== */
+
+/* ===================================== */
+/* ======= RESPONSIVE FIN=============== */
+/* ===================================== */

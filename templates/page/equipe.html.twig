@@ -1,8 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fin{% endblock %}
+{% block title %}L'Équipe - Fête Foraine des Licornes{% endblock %}
 
 {% block body %}
-  <h1>Page de fin 🎉</h1>
-  <a href="{{ path('landing') }}">Retour à l’accueil</a>
+<main class="team-page">
+    
+    <div class="team-container">
+        <div class="member">
+            <img src="{{ asset('images/KFpixel.png') }}" class="pixel-art" alt="Membre de l'équipe">
+        </div>
+
+        <div class="member">
+            <img src="{{ asset('images/KNpixel.png') }}" class="pixel-art" alt="Membre de l'équipe">
+        </div>
+
+        <div class="member leader">
+            <div class="avatar-wrapper">
+                <img src="{{ asset('images/ABpixel.png') }}" class="pixel-art" alt="BAIL Alexis">
+            </div>
+            <div class="name-tag">BAIL Alexis</div>
+        </div>
+
+        <div class="member">
+            <img src="{{ asset('images/APpixel.png') }}" class="pixel-art" alt="Membre de l'équipe">
+        </div>
+
+        <div class="member">
+            <img src="{{ asset('images/EMpixel.png') }}" class="pixel-art" alt="Membre de l'équipe">
+        </div>
+    </div>
+
+    <nav class="actions">
+    {# On remplace 'portfolio' par 'landing' (ton accueil) #}
+    <a href="{{ path('landing') }}" class="btn-custom btn-white">Portfolio</a>
+    
+    {# On remplace 'soumettre_projet' par 'fin' #}
+    <a href="{{ path('fin') }}" class="btn-custom btn-pink">Soumettre un projet</a>
+</nav>
+
+</main>
 {% endblock %}
