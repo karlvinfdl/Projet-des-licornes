@@ -1,8 +1,89 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fin{% endblock %}
+{% block title %}Fête des Licornes{% endblock %}
 
 {% block body %}
-  <h1>Page de fin 🎉</h1>
-  <a href="{{ path('landing') }}">Retour à l’accueil</a>
+
+<link rel="stylesheet" href="{{ asset('style.css') }}">
+
+<!-- Fond vidéo -->
+<video class="bg-video" autoplay muted loop playsinline>
+  <source src="{{ asset('background5.mp4') }}" type="video/mp4">
+</video>
+
+<!-- ===================== -->
+<!-- ÎLES À GAUCHE -->
+<!-- ===================== -->
+<div class="iles">
+  <img class="island island-roue" src="{{ asset('3.png') }}" alt="Roue Magique" />
+  <img class="island island-devine" src="{{ asset('4.png') }}" alt="Devine le mot" />
+  <img class="island island-pinata" src="{{ asset('1.png') }}" alt="Pinata" />
+  <img class="island island-scrabble" src="{{ asset('2.png') }}" alt="Scrabble des licornes" />
+  <img class="island island-star" src="{{ asset('5.png') }}" alt="Star Coaster" />
+</div>
+
+<!-- ===================== -->
+<!-- COLONNE DROITE -->
+<!-- ===================== -->
+<main class="right-col">
+
+  <!-- Carte titre -->
+  <section class="card card-title">
+    <h1>Bienvenue à la<br>Fête des Licornes !</h1>
+  </section>
+
+  <!-- Formulaire -->
+  <section class="card card-form">
+    <h2>Formulaire</h2>
+
+    <form method="post">
+      <label>
+        <span>Nom :</span>
+        <input name="nom" type="text" required>
+      </label>
+
+      <label>
+        <span>Prénom :</span>
+        <input name="prenom" type="text" required>
+      </label>
+
+      <label>
+        <span>Age :</span>
+        <input name="age" type="number" min="0" max="120" required>
+      </label>
+
+      <label>
+        <span>Email :</span>
+        <input name="email" type="email" required>
+      </label>
+
+      <label>
+        <span>Ville :</span>
+        <input name="ville" type="text" required>
+      </label>
+
+      <button class="btn" type="submit">Envoyer</button>
+    </form>
+
+  </section>
+
+  <!-- Bouton équipe -->
+  <button class="big-btn" id="teamBtn">Découvrir l’équipe</button>
+
+  <!-- Easter egg -->
+  <section class="card card-egg">
+    <div class="egg">
+      <img src="{{ asset('tokyo.png') }}" alt="Tokyo">
+
+      <div>
+        <h3>Easter egg</h3>
+        <p>Je suis Tokyo aide moi à<br>retrouver ma famille</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="{{ asset('script.js') }}"></script>
+
 {% endblock %}
