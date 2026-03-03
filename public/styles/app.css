@@ -104,21 +104,26 @@ body {
 /* =============== POPUP DEBUT========== */
 /* ===================================== */
 
-
+/* Overlay du popup - masqué par défaut */
 .popup-overlay2 {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8) !important;
-  display: flex;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
   align-items: center;
   justify-content: center;
-  z-index: 10000 !important;
-  font-family: 'Noto Serif', serif;
+  z-index: 10000;
 }
 
+/* Classe pour afficher le popup */
+.popup-overlay2.visible {
+  display: flex;
+}
+
+/* Contenu du popup */
 .popup-content2 {
   background: #e9e9e9;
   border-radius: 20px;
@@ -127,14 +132,26 @@ body {
   max-width: 90%;
   position: relative;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 10001;
 }
 
+/* Croix de fermeture en haut à gauche */
 .close-btn2 {
   position: absolute;
   top: 15px;
-  right: 20px;
+  left: 20px;
   font-size: 28px;
   cursor: pointer;
+  color: #e91e63;
+}
+
+.close-btn2:hover {
+  color: #d81b60;
+}
+
+/* Styles pour le formulaire */
+.form-popup2 {
+  font-family: 'Noto Serif', serif;
 }
 
 .grid2 {
