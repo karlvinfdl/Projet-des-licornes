@@ -38,9 +38,9 @@
     <button type="button" id="btn-popup" class="btn-custom btn-pink">Soumettre un projet</button>
 </nav>
 
-<div id="popup" class="popup-overlay" aria-hidden="true" style="display:none;">
-  <div class="popup-content" role="dialog" aria-modal="true">
-    <span id="close-popup" class="close-btn">&times;</span>
+<div id="popup" class="popup-overlay2" aria-hidden="true" style="display: none;" onclick="if(event.target === this) this.style.display='none';">
+  <div class="popup-content2" role="dialog" aria-modal="true" onclick="event.stopPropagation();">
+    <span id="close-popup" class="close-btn2" onclick="document.getElementById('popup').style.display='none';">&times;</span>
 
     <div id="ton-popup">
       <form class="form-popup2">
@@ -109,16 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             console.log('Bouton cliqué!');
             popup.style.display = 'flex';
-        });
-
-        closePopup.addEventListener('click', function() {
-            popup.style.display = 'none';
-        });
-
-        popup.addEventListener('click', function(e) {
-            if (e.target === popup) {
-                popup.style.display = 'none';
-            }
         });
 
         // Fermeture avec touche ESC
