@@ -39,34 +39,56 @@
         <button type="button" id="btn-popup" class="btn-custom btn-pink">Soumettre un projet</button>
     </nav>
 
-    {# Ton code de Popup reste inchangé ici ... #}
+    <div id="popup" class="popup-overlay2" aria-hidden="true">
+  <div class="popup-content2" role="dialog" aria-modal="true">
+    <span id="close-btn2" class="close-btn2">&times;</span>
+
+    <div id="ton-popup">
+      <form class="form-popup2">
+        <div class="grid2">
+          <div class="col2">
+            <label class="label2">*Nom :</label>
+            <input type="text" class="input2" required>
+
+            <label class="label2">*Prénom :</label>
+            <input type="text" class="input2" required>
+          </div>
+
+          <div class="col2">
+            <label class="label2">*Siret :</label>
+            <input type="text" class="input2" required>
+
+            <label class="label2">*Email :</label>
+            <input type="email" class="input2" required>
+          </div>
+        </div>
+
+        <h3 class="title2">Dites nous comment vous aider :</h3>
+
+        <div class="checkbox-grid2">
+          <label class="checkbox2">
+            <input type="checkbox"> Site Vitrine
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Prise de RDV
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Paiement en ligne
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Organisation des data
+          </label>
+        </div>
+
+        <textarea class="textarea2" placeholder="Notes à l’équipe" maxlength="1500"></textarea>
+
+        <div class="btn-container2">
+          <button type="submit" class="submit-btn2">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 </main>
 
-{% block javascripts %}
-{{ parent() }}
-{# On garde ton script de popup et on peut ajouter la logique ici ou dans app.js #}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // --- Logique du Popup (Déjà existante) ---
-    const btnPopup = document.getElementById('btn-popup');
-    const popup = document.getElementById('popup');
-    if (btnPopup && popup) {
-        btnPopup.addEventListener('click', () => popup.style.display = 'flex');
-    }
-
-    // --- LOGIQUE DE SÉLECTION DE PERSONNAGE (NOUVEAU) ---
-    const members = document.querySelectorAll('.js-member');
-    
-    members.forEach(member => {
-        member.addEventListener('click', function() {
-            // 1. On retire la classe 'leader' de l'ancien membre
-            document.querySelector('.js-member.leader')?.classList.remove('leader');
-            
-            // 2. On ajoute la classe 'leader' au nouveau membre cliqué
-            this.classList.add('leader');
-        });
-    });
-});
-</script>
-{% endblock %}
 {% endblock %}
