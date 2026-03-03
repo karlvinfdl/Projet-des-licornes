@@ -1,7 +1,16 @@
-body {
-    background-color: rgb(255, 255, 255);
+/* Supprime les marges par défaut du navigateur sur TOUTE la page */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Évite le scroll horizontal parasite */
 }
 
+/* On s'assure que le contenu ne soit pas bridé */
+body {
+    display: block;
+}
 /* ===================================== */
 /* ============== LANDING DEBUT========= */
 /* ===================================== */
@@ -18,14 +27,15 @@ body {
 .team-page {
     background: url('../images/fond_equipe2.png') no-repeat center center fixed;
     background-size: cover;
-    min-height: 100vh;
+    width: 100vw; /* 100% de la largeur de la fenêtre */
+    min-height: 100vh; /* 100% de la hauteur de la fenêtre */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
-
 /* Alignement des personnages sur une ligne de sol */
 .team-container {
     display: flex;
