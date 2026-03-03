@@ -30,7 +30,7 @@ body {
 .team-container {
     display: flex;
     align-items: flex-end; 
-    gap: 15px;
+    gap: 50px;
     margin-bottom: 50px;
 }
 
@@ -43,7 +43,7 @@ body {
 /* Rendu Pixel Art propre */
 .pixel-art {
     image-rendering: pixelated;
-    width: 110px; 
+    width: 140px; 
     height: auto;
     display: block;
 }
