@@ -106,6 +106,43 @@ body {
     transform: scale(1.05);
     filter: brightness(1.1);
 }
+
+/* ... Tes styles précédents ... */
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer; /* Curseur main au survol */
+    transition: transform 0.3s ease; /* Fluidité générale */
+}
+
+.pixel-art {
+    image-rendering: pixelated;
+    width: 140px; 
+    height: auto;
+    display: block;
+    transition: width 0.3s ease-in-out; /* L'image grossit en douceur */
+}
+
+/* Le personnage sélectionné (leader) grossit */
+.leader .pixel-art {
+    width: 180px; /* Un peu plus grand que 170 pour bien marquer le coup */
+}
+
+/* Gestion du badge de nom */
+.name-tag {
+    opacity: 0; /* Caché par défaut */
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    /* ... tes styles existants (background, padding, etc.) ... */
+}
+
+/* On affiche le nom uniquement pour celui qui a la classe leader */
+.leader .name-tag {
+    opacity: 1;
+    transform: translateY(0);
+}
 /* ===================================== */
 /* =============== EQUIPE FIN=========== */
 /* ===================================== */
