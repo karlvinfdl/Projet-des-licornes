@@ -11,7 +11,7 @@ class PageController extends AbstractController
     // =========================
     // Landing
     // =========================
-    #[Route('/', name: 'landing')]
+    #[Route('/landing', name: 'landing')]
     public function landing(): Response
     {
         return $this->render('page/landing.html.twig');

@@ -34,9 +34,91 @@
     {# On remplace 'portfolio' par 'landing' (ton accueil) #}
     <a href="{{ path('landing') }}" class="btn-custom btn-white">Portfolio</a>
     
-    {# On remplace 'soumettre_projet' par 'fin' #}
-    <a href="{{ path('fin') }}" class="btn-custom btn-pink">Soumettre un projet</a>
+    {# Ajout d'un ID pour le lien du popup #}
+    <button type="button" id="btn-popup" class="btn-custom btn-pink">Soumettre un projet</button>
 </nav>
 
+<div id="popup" class="popup-overlay2" aria-hidden="true" style="display: none;" onclick="if(event.target === this) this.style.display='none';">
+  <div class="popup-content2" role="dialog" aria-modal="true" onclick="event.stopPropagation();">
+    <span id="close-popup" class="close-btn2" onclick="document.getElementById('popup').style.display='none';">&times;</span>
+
+    <div id="ton-popup">
+      <form class="form-popup2">
+        <div class="grid2">
+          <div class="col2">
+            <label class="label2">*Nom :</label>
+            <input type="text" class="input2" required>
+
+            <label class="label2">*Prénom :</label>
+            <input type="text" class="input2" required>
+          </div>
+
+          <div class="col2">
+            <label class="label2">*Siret :</label>
+            <input type="text" class="input2" required>
+
+            <label class="label2">*Email :</label>
+            <input type="email" class="input2" required>
+          </div>
+        </div>
+
+        <h3 class="title2">Dites nous comment vous aider :</h3>
+
+        <div class="checkbox-grid2">
+          <label class="checkbox2">
+            <input type="checkbox"> Site Vitrine
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Prise de RDV
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Paiement en ligne
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Organisation des data
+          </label>
+        </div>
+
+        <textarea class="textarea2" placeholder="Notes à l’équipe" maxlength="1500"></textarea>
+
+        <div class="btn-container2">
+          <button type="submit" class="submit-btn2">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 </main>
+
+{# Bloc JavaScript pour le popup #}
+{% block javascripts %}
+{{ parent() }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Script loaded!');
+
+    const btnPopup = document.getElementById('btn-popup');
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('close-popup');
+
+    console.log('btnPopup:', btnPopup);
+    console.log('popup:', popup);
+
+    if (btnPopup && popup) {
+        btnPopup.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Bouton cliqué!');
+            popup.style.display = 'flex';
+        });
+
+        // Fermeture avec touche ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                popup.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
+{% endblock %}
 {% endblock %}
