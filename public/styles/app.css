@@ -182,12 +182,12 @@ body {
   z-index: 10001;
 }
 
-/* Croix de fermeture en haut à gauche */
+/* Croix de fermeture en haut à droite */
 .close-btn2 {
   position: absolute;
-  top: 15px;
-  left: 20px;
-  font-size: 28px;
+  top: 10px;
+  right: 20px;
+  font-size: 40px;
   cursor: pointer;
   color: #e91e63;
 }
