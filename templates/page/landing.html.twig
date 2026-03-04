@@ -6,75 +6,71 @@
 
 <link rel="stylesheet" href="{{ asset('style.css') }}">
 
-<!-- Fond vidéo -->
-<video class="bg-video" autoplay muted loop playsinline>
-  <source src="{{ asset('background5.mp4') }}" type="video/mp4">
-</video>
+{# Fond image #}
+<div class="bg1" aria-hidden="true"></div>
 
 <!-- ===================== -->
 <!-- ÎLES À GAUCHE -->
 <!-- ===================== -->
-<div class="iles">
-  <img class="island island-roue" src="{{ asset('3.png') }}" alt="Roue Magique" />
-  <img class="island island-devine" src="{{ asset('4.png') }}" alt="Devine le mot" />
-  <img class="island island-pinata" src="{{ asset('1.png') }}" alt="Pinata" />
-  <img class="island island-scrabble" src="{{ asset('2.png') }}" alt="Scrabble des licornes" />
-  <img class="island island-star" src="{{ asset('5.png') }}" alt="Star Coaster" />
+<div class="iles1" aria-label="Jeux">
+  <img class="island1 island-roue1" src="{{ asset('images/ile-axel1.png') }}" alt="Roue Magique" />
+  <img class="island1 island-devine1" src="{{ asset('images/ile-alexis1.png') }}" alt="Devine le mot" />
+  <img class="island1 island-pinata1" src="{{ asset('images/ile-kyllian1.png') }}" alt="Pinata" />
+  <img class="island1 island-scrabble1" src="{{ asset('images/ile-karlvin1.png') }}" alt="Scrabble des licornes" />
+  <img class="island1 island-star1" src="{{ asset('images/ile-elodie1.png') }}" alt="Star Coaster" />
 </div>
 
 <!-- ===================== -->
 <!-- COLONNE DROITE -->
 <!-- ===================== -->
-<main class="right-col">
+<main class="right-col1">
 
   <!-- Carte titre -->
-  <section class="card card-title">
+  <section class="card1 card-title1">
     <h1>Bienvenue à la<br>Fête des Licornes !</h1>
   </section>
 
   <!-- Formulaire -->
-  <section class="card card-form">
+  <section class="card1 card-form1">
     <h2>Formulaire</h2>
 
-    <form method="post">
-      <label>
+    <form method="post" class="form1">
+      <label class="field1">
         <span>Nom :</span>
-        <input name="nom" type="text" required>
+        <input name="nom" type="text" autocomplete="family-name" required>
       </label>
 
-      <label>
+      <label class="field1">
         <span>Prénom :</span>
-        <input name="prenom" type="text" required>
+        <input name="prenom" type="text" autocomplete="given-name" required>
       </label>
 
-      <label>
-        <span>Age :</span>
-        <input name="age" type="number" min="0" max="120" required>
+      <label class="field1">
+        <span>Âge :</span>
+        <input name="age" type="number" min="0" max="120" inputmode="numeric" required>
       </label>
 
-      <label>
+      <label class="field1">
         <span>Email :</span>
-        <input name="email" type="email" required>
+        <input name="email" type="email" autocomplete="email" required>
       </label>
 
-      <label>
+      <label class="field1">
         <span>Ville :</span>
-        <input name="ville" type="text" required>
+        <input name="ville" type="text" autocomplete="address-level2" required>
       </label>
 
-      <button class="btn" type="submit">Envoyer</button>
+      <button class="btn1" type="submit">Envoyer</button>
     </form>
-
   </section>
 
   <!-- Bouton équipe -->
-  <button class="big-btn" id="teamBtn">Découvrir l’équipe</button>
+  <button class="big-btn1" id="teamBtn" type="button">Découvrir l'équipe</button>
 
   <!-- Easter egg -->
-  <section class="card card-egg">
-    <div class="egg">
+  <section class="card1 card-egg1">
+    <div class="egg1">
       <img src="{{ asset('tokyo.png') }}" alt="Tokyo">
-
       <div>
         <h3>Easter egg</h3>
         <p>Je suis Tokyo aide moi à<br>retrouver ma famille</p>
