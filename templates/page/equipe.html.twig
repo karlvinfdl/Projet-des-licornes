@@ -1,8 +1,94 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fin{% endblock %}
+{% block title %}L'Équipe - Fête Foraine des Licornes{% endblock %}
 
 {% block body %}
-  <h1>Page de fin 🎉</h1>
-  <a href="{{ path('landing') }}">Retour à l’accueil</a>
+<main class="team-page">
+    
+    <div class="team-container">
+        <div class="member js-member" data-name="KEVIN F.">
+            <img src="{{ asset('images/KFpixel.png') }}" class="pixel-art" alt="Membre">
+            <div class="name-tag">Karlvin FIDELIN</div>
+        </div>
+
+        <div class="member js-member" data-name="KEVIN N.">
+            <img src="{{ asset('images/KNpixel.png') }}" class="pixel-art" alt="Membre">
+            <div class="name-tag">Kyllian NGOMA</div>
+        </div>
+
+        <div class="member js-member leader" data-name="BAIL ALEXIS">
+            <div class="avatar-wrapper">
+                <img src="{{ asset('images/ABpixel.png') }}" class="pixel-art" alt="BAIL Alexis">
+            </div>
+            <div class="name-tag">Alexis BAIL</div>
+        </div>
+
+        <div class="member js-member" data-name="ARTHUR P.">
+            <img src="{{ asset('images/APpixel.png') }}" class="pixel-art" alt="Membre">
+            <div class="name-tag">Axel PAULINO M.</div>
+        </div>
+
+        <div class="member js-member" data-name="ENZO M.">
+            <img src="{{ asset('images/EMpixel.png') }}" class="pixel-art" alt="Membre">
+            <div class="name-tag">Elodie MUSIAL</div>
+        </div>
+    </div>
+
+    <nav class="actions">
+        <a href="{{ path('landing') }}" class="btn-custom btn-white">Portfolio</a>
+        <button type="button" id="btn-popup" class="btn-custom btn-pink">Soumettre un projet</button>
+    </nav>
+
+    <div id="popup" class="popup-overlay2" aria-hidden="true">
+  <div class="popup-content2" role="dialog" aria-modal="true">
+    <span id="close-btn2" class="close-btn2">&times;</span>
+
+    <div id="ton-popup">
+      <form class="form-popup2">
+        <div class="grid2">
+          <div class="col2">
+            <label class="label2">*Nom :</label>
+            <input type="text" class="input2" required>
+
+            <label class="label2">*Prénom :</label>
+            <input type="text" class="input2" required>
+          </div>
+
+          <div class="col2">
+            <label class="label2">*Siret :</label>
+            <input type="text" class="input2" required>
+
+            <label class="label2">*Email :</label>
+            <input type="email" class="input2" required>
+          </div>
+        </div>
+
+        <h3 class="title2">Dites nous comment vous aider :</h3>
+
+        <div class="checkbox-grid2">
+          <label class="checkbox2">
+            <input type="checkbox"> Site Vitrine
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Prise de RDV
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Paiement en ligne
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Organisation des data
+          </label>
+        </div>
+
+        <textarea class="textarea2" placeholder="Notes à l’équipe" maxlength="1500"></textarea>
+
+        <div class="btn-container2">
+          <button type="submit" class="submit-btn2">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</main>
+
 {% endblock %}
