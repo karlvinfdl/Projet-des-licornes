@@ -11,37 +11,27 @@ import './stimulus_bootstrap.js';
 /* ===================================== */
 /* =============== EQUIPE DEBUT========= */
 /* ===================================== */
-
 // Si tu décides de mettre la logique ici plutôt que dans le Twig :
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Fonction de sélection des membres et mise à jour du lien
+    // Fonction de sélection des membres
     const handleMemberSelection = () => {
-        const members = document.querySelectorAll('.js-member5');
-        const portfolioBtn = document.getElementById('link-portfolio');
+        const members = document.querySelectorAll('.js-member');
         
         members.forEach(m => {
             m.addEventListener('click', () => {
-                // 1. Mise à jour visuelle (taille et nom)
-                members.forEach(member => member.classList.remove('leader5'));
-                m.classList.add('leader5');
-
-                // 2. Mise à jour du lien Portfolio
-                const newUrl = m.getAttribute('data-portfolio');
-                
-                // On vérifie que le bouton existe et que l'URL n'est pas vide
-                if (portfolioBtn && newUrl && newUrl.trim() !== "") {
-                    portfolioBtn.href = newUrl;
-                    console.log('Lien mis à jour pour : ' + m.getAttribute('data-name'));
-                }
+                // On enlève la classe leader à tout le monde
+                members.forEach(member => member.classList.remove('leader'));
+                // On l'ajoute au membre cliqué
+                m.classList.add('leader');
             });
         });
     };
 
     handleMemberSelection();
-    console.log('Système de sélection de personnage prêt ! 🦄');
+    console.log('Système de sélection de personnage actif ! 🕹️');
 });
-
+console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 /* ===================================== */
 /* =============== EQUIPE FIN=========== */
 /* ===================================== */
@@ -115,5 +105,3 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ===================================== */
 /* ======= RESPONSIVE FIN=============== */
 /* ===================================== */
-
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

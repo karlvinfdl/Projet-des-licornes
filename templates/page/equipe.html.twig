@@ -39,6 +39,57 @@
         
         <button type="button" id="btn-popup5" class="btn-custom5 btn-pink5">Soumettre un projet</button>
     </nav>
+</main>
 
+    <div id="popup" class="popup-overlay2" aria-hidden="true">
+  <div class="popup-content2" role="dialog" aria-modal="true">
+    <span id="close-btn2" class="close-btn2">&times;</span>
+
+    <div id="ton-popup">
+      <form class="form-popup2">
+        <div class="grid2">
+          <div class="col2">
+            <label class="label2">*Nom :</label>
+            <input type="text" class="input2" required>
+
+            <label class="label2">*Prénom :</label>
+            <input type="text" class="input2" required>
+          </div>
+
+          <div class="col2">
+            <label class="label2">*Siret :</label>
+            <input type="text" class="input2" required>
+
+            <label class="label2">*Email :</label>
+            <input type="email" class="input2" required>
+          </div>
+        </div>
+
+        <h3 class="title2">Dites nous comment vous aider :</h3>
+
+        <div class="checkbox-grid2">
+          <label class="checkbox2">
+            <input type="checkbox"> Site Vitrine
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Prise de RDV
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Paiement en ligne
+          </label>
+          <label class="checkbox2">
+            <input type="checkbox"> Organisation des data
+          </label>
+        </div>
+
+        <textarea class="textarea2" placeholder="Notes à l’équipe" maxlength="1500"></textarea>
+
+        <div class="btn-container2">
+          <button type="submit" class="submit-btn2">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 </main>
 {% endblock %}
