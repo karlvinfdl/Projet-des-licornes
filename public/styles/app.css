@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Press+Start+2P&display=swap');
 /* Supprime les marges par défaut du navigateur sur TOUTE la page */
 html, body {
     margin: 0 !important;
@@ -22,13 +24,12 @@ body {
 /* ===================================== */
 /* =============== EQUIPE DEBUT========= */
 /* ===================================== */
-/* public/css/equipe.css */
 
-.team-page {
+.team-page5 {
     background: url('../images/fond_equipe2.png') no-repeat center center fixed;
     background-size: cover;
-    width: 100vw; /* 100% de la largeur de la fenêtre */
-    min-height: 100vh; /* 100% de la hauteur de la fenêtre */
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,112 +37,124 @@ body {
     margin: 0;
     padding: 0;
 }
+
 /* Alignement des personnages sur une ligne de sol */
-.team-container {
+.team-container5 {
     display: flex;
     align-items: flex-end; 
     gap: 50px;
     margin-bottom: 50px;
 }
 
-.member {
+.member5 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer; /* Curseur main au survol pour la sélection */
+    transition: transform 0.3s ease;
 }
 
-/* Rendu Pixel Art propre */
-.pixel-art {
+/* Rendu Pixel Art propre et transition de taille */
+.pixel-art5 {
     image-rendering: pixelated;
     width: 140px; 
     height: auto;
     display: block;
+    transition: width 0.3s ease-in-out; /* Animation de gonflement */
 }
 
-/* Style spécifique pour le leader au centre */
-.leader .pixel-art {
-    width: 170px; /* Plus imposant comme sur la maquette */
+/* Le personnage sélectionné (leader) grossit */
+.leader5 .pixel-art5 {
+    width: 180px; 
 }
 
-.name-tag {
+/* Gestion du badge de nom (Noto Serif par défaut) */
+.name-tag5 {
+    font-family: "Noto Serif", serif;
     background-color: #f8f9fa;
     color: #333;
     padding: 8px 25px;
     border-radius: 30px;
-    font-family: 'Courier New', Courier, monospace; /* Style un peu rétro/code */
     font-weight: bold;
     margin-top: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    
+    /* Animation d'apparition */
+    opacity: 0; 
+    transform: translateY(10px);
+    transition: all 0.3s ease;
 }
 
-/* Boutons style "Pill" */
-.actions {
+/* On affiche le nom uniquement pour celui qui a la classe leader */
+.leader5 .name-tag5 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Boutons style "Pill" - Alignés et centrés */
+.actions5 {
     display: flex;
-    gap: 30px;
+    justify-content: center; 
+    align-items: center;    
+    gap: 30px;              
+    width: 100%;            
+    margin-top: 20px;
 }
 
-.btn-custom {
-    padding: 12px 45px;
+.btn-custom5 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* On utilise min-width et width pour être sûr */
+    width: 320px; 
+    min-width: 320px; 
+    height: 70px;
+    
+    /* TRÈS IMPORTANT : On réduit le padding à presque rien */
+    /* pour que le texte ne pousse pas les murs du bouton */
+    padding: 0 10px; 
+    
+    /* On s'assure que les bordures ne s'ajoutent pas à la taille */
+    box-sizing: border-box; 
+
     border-radius: 50px;
     text-decoration: none;
-    font-family: 'Arial Rounded MT Bold', sans-serif;
-    font-weight: bold;
-    font-size: 1.3rem;
     transition: all 0.2s ease-in-out;
     border: 3px solid transparent;
+    cursor: pointer;
+    
+    /* On centre bien le texte à l'intérieur */
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte de revenir à la ligne */
 }
 
-.btn-white {
+/* On ajuste les polices pour qu'elles rentrent bien */
+.btn-white5, .btn-pink5 {
+    font-size: 1.6rem !important; /* On baisse un tout petit peu si besoin */
+    font-weight: 700;
+}
+
+.btn-white5 {
+    font-size: 1.8rem;
+    font-family: "Irish Grover", cursive;
+    font-weight: 700;
     background-color: white;
-    color: #d63384; /* Rose pour le texte */
+    color: #d63384;
 }
 
-.btn-pink {
+.btn-pink5 {
+    font-size: 1.8rem;
+    font-family: "Irish Grover", cursive;
+    font-weight: 700;
     background-color: #d63384;
     color: white;
     border-color: #fff;
 }
 
-.btn-custom:hover {
+.btn-custom5:hover {
     transform: scale(1.05);
     filter: brightness(1.1);
-}
-
-/* ... Tes styles précédents ... */
-
-.member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer; /* Curseur main au survol */
-    transition: transform 0.3s ease; /* Fluidité générale */
-}
-
-.pixel-art {
-    image-rendering: pixelated;
-    width: 140px; 
-    height: auto;
-    display: block;
-    transition: width 0.3s ease-in-out; /* L'image grossit en douceur */
-}
-
-/* Le personnage sélectionné (leader) grossit */
-.leader .pixel-art {
-    width: 180px; /* Un peu plus grand que 170 pour bien marquer le coup */
-}
-
-/* Gestion du badge de nom */
-.name-tag {
-    opacity: 0; /* Caché par défaut */
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    /* ... tes styles existants (background, padding, etc.) ... */
-}
-
-/* On affiche le nom uniquement pour celui qui a la classe leader */
-.leader .name-tag {
-    opacity: 1;
-    transform: translateY(0);
 }
 /* ===================================== */
 /* =============== EQUIPE FIN=========== */

@@ -14,9 +14,8 @@
 
     {% block javascripts %}
 
-        {# On le laisse ici aussi pour le bon fonctionnement du JS #}
+        {# importmap crée l'import map ET charge le point d'entrée app.js #}
         {{ importmap('app') }}
-
     {% endblock %}
 
     </head>
