@@ -1,0 +1,218 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+/* ===================================== */
+/* ============== LANDING DEBUT========= */
+/* ===================================== */
+
+/* ===================================== */
+/* ============== LANDING FIN=========== */
+/* ===================================== */
+
+/* ===================================== */
+/* =============== EQUIPE DEBUT========= */
+/* ===================================== */
+
+
+
+.popup-overlay2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000 !important;
+  font-family: 'Noto Serif', serif;
+}
+
+.popup-content2 {
+  background: #e9e9e9;
+  border-radius: 20px;
+  padding: 40px;
+  width: 700px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.close-btn2 {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.label2 {
+  display: block;
+  color: #e91e63;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input2 {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #e91e63;
+  background: transparent;
+  margin-bottom: 20px;
+  font-family: 'Noto Serif', serif;
+}
+
+.title2 {
+  color: #e91e63;
+  margin: 20px 0 10px;
+}
+
+.checkbox-grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 40px;
+  margin-bottom: 20px;
+}
+
+.checkbox2 {
+  font-size: 16px;
+}
+
+.textarea2 {
+  width: 100%;
+  height: 120px;
+  border-radius: 15px;
+  border: 2px solid #e91e63;
+  padding: 15px;
+  resize: none;
+  font-family: 'Noto Serif', serif;
+}
+
+.btn-container2 {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.submit-btn2 {
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn2:hover {
+  background: #d81b60;
+}
+/* ===================================== */
+/* =============== POPUP FIN============ */
+/* ===================================== */
+
+/* ===================================== */
+/* ==FIN DEBUT PARTIE 4 ELODIE========== */
+/* ===================================== */
+/*Elodie travail ici / MENU DEROULANT */
+.page-fin {
+    min-height: 100vh;
+    background-image: url('../images/page-de-fin.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulaire-section {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 60%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    margin: auto;
+}
+
+/* Titre */
+.formulaire-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 35px;
+    color: #000;
+}
+
+/* Champs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #bbb;
+    background-color: #fff !important;
+    color: #000 !important;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Bouton */
+.btn-submit {
+    margin: 30px auto 0;
+    padding: 14px 40px;
+    background-color: #ff4f9a;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+/* =============================== */
+/* ====== RESPONSIVE PARTIE 4 ==== */
+/* =============================== */
+
+@media (max-width: 768px) {
+    .formulaire-section {
+        width: 90%;
+        padding: 30px;
+    }
+}
+/* ===================================== */
+/* ================ FIN FIN ============ */
+/* ===================================== */
+
+/* ===================================== */
+/* ===== RESPONSIVE DEBUT=============== */
+/* ===================================== */
+
+/* ===================================== */
+/* ======= RESPONSIVE FIN=============== */
+/* ===================================== */
