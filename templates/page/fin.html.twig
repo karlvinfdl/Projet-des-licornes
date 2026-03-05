@@ -1,8 +1,93 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fin{% endblock %}
+{% block title %}Fin de jeu{% endblock %}
 
 {% block body %}
-  <h1>Page de fin 🎉</h1>
-  <a href="{{ path('landing') }}">Retour à l’accueil</a>
+
+{# ======================================================= #}
+{# =============== PARTIE 4 : FORMULAIRE ================= #}
+{# ======================================================= #}
+
+<div class="page-fin">
+
+    <div class="formulaire-section">
+
+        <h2 class="formulaire-title">
+            Donne-nous ton avis
+        </h2>
+
+        <form method="post" class="formulaire">
+
+            {# ===== Champ : Pseudo ===== #}
+            <div class="form-group">
+                <label for="pseudo">Pseudo</label>
+                <input
+                    type="text"
+                    id="pseudo"
+                    name="pseudo"
+                    placeholder="Entre ton pseudo"
+                    required
+                >
+            </div>
+
+            {# ===== Champ : Email ===== #}
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="exemple@mail.com"
+                    required
+                >
+            </div>
+
+            {# ===== Menu déroulant ===== #}
+            <div class="form-group">
+                <label for="jeu_prefere">Quel est ton jeu préféré ?</label>
+                <select id="jeu_prefere" name="jeu_prefere" required>
+                    <option value="">-- Choisis un jeu --</option>
+                    <option value="star_coaster">Star Coaster</option>
+                    <option value="scrabble_licornes">Scrabble des licornes</option>
+                    <option value="pinata">Piñata</option>
+                    <option value="devine_mot">Devine le mot</option>
+                    <option value="roue_magique">La roue magique</option>
+                </select>
+            </div>
+
+            {# ===== Champ : SIRET ===== #}
+            <div class="form-group">
+                <label for="siret">SIRET</label>
+                <input
+                    type="text"
+                    id="siret"
+                    name="siret"
+                    placeholder="Ex : 123 456 789 00012"
+                    pattern="[0-9 ]{14,17}"
+                >
+            </div>
+
+            {# ===== Champ : Avis ===== #}
+            <div class="form-group">
+                <label for="message">Ton avis</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Écris ton avis ici..."
+                    required
+                ></textarea>
+            </div>
+
+            {# ===== Bouton ===== #}
+            <button type="submit" class="btn-submit">
+                Envoyer
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
 {% endblock %}
