@@ -9,6 +9,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageController extends AbstractController
 {
     // =========================
+    // Home - Redirect to landing
+    // =========================
+    #[Route('/', name: 'home')]
+    public function home(): Response
+    {
+        return $this->redirectToRoute('landing');
+    }
+
+    // =========================
     // Landing
     // =========================
     #[Route('/landing', name: 'landing')]

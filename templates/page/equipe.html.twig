@@ -3,41 +3,43 @@
 {% block title %}L'Équipe - Fête Foraine des Licornes{% endblock %}
 
 {% block body %}
-<main class="team-page">
+<main class="team-page5">
     
-    <div class="team-container">
-        <div class="member js-member" data-name="KEVIN F.">
-            <img src="{{ asset('images/KFpixel.png') }}" class="pixel-art" alt="Membre">
-            <div class="name-tag">Karlvin FIDELIN</div>
+    <div class="team-container5">
+        <div class="member5 js-member5" data-name="Karlvin F." data-portfolio="https://karlvinfdl.github.io/portfolio/">
+            <img src="{{ asset('images/KFpixel.png') }}" class="pixel-art5" alt="Membre">
+            <div class="name-tag5">Karlvin FIDELIN</div>
         </div>
 
-        <div class="member js-member" data-name="KEVIN N.">
-            <img src="{{ asset('images/KNpixel.png') }}" class="pixel-art" alt="Membre">
-            <div class="name-tag">Kyllian NGOMA</div>
+        <div class="member5 js-member5" data-name="Kyllian N." data-portfolio="URL_GITHUB_KYLLIAN">
+            <img src="{{ asset('images/KNpixel.png') }}" class="pixel-art5" alt="Membre">
+            <div class="name-tag5">Kyllian NGOMA</div>
         </div>
 
-        <div class="member js-member leader" data-name="BAIL ALEXIS">
-            <div class="avatar-wrapper">
-                <img src="{{ asset('images/ABpixel.png') }}" class="pixel-art" alt="BAIL Alexis">
+        <div class="member5 js-member5 leader5" data-name="ALEXIS B." data-portfolio="https://alexisbail.github.io/mon-portfolio/">
+            <div class="avatar-wrapper5">
+                <img src="{{ asset('images/ABpixel.png') }}" class="pixel-art5" alt="BAIL Alexis">
             </div>
-            <div class="name-tag">Alexis BAIL</div>
+            <div class="name-tag5">Alexis BAIL</div>
         </div>
 
-        <div class="member js-member" data-name="ARTHUR P.">
-            <img src="{{ asset('images/APpixel.png') }}" class="pixel-art" alt="Membre">
-            <div class="name-tag">Axel PAULINO M.</div>
+        <div class="member5 js-member5" data-name="Axel P. M." data-portfolio="https://axelpm4.github.io/Portfolio/">
+            <img src="{{ asset('images/APpixel.png') }}" class="pixel-art5" alt="Membre">
+            <div class="name-tag5">Axel PAULINO M.</div>
         </div>
 
-        <div class="member js-member" data-name="ENZO M.">
-            <img src="{{ asset('images/EMpixel.png') }}" class="pixel-art" alt="Membre">
-            <div class="name-tag">Elodie MUSIAL</div>
+        <div class="member5 js-member5" data-name="Elodie M." data-portfolio="URL_GITHUB_ELODIE">
+            <img src="{{ asset('images/EMpixel.png') }}" class="pixel-art5" alt="Membre">
+            <div class="name-tag5">Elodie MUSIAL</div>
         </div>
     </div>
 
-    <nav class="actions">
-        <a href="{{ path('landing') }}" class="btn-custom btn-white">Portfolio</a>
-        <button type="button" id="btn-popup" class="btn-custom btn-pink">Soumettre un projet</button>
+    <nav class="actions5">
+        <a id="link-portfolio" href="https://karlvinfdl.github.io/portfolio/" target="_blank" class="btn-custom5 btn-white5">Portfolio</a>
+        
+        <button type="button" id="btn-popup5" class="btn-custom5 btn-pink5">Soumettre un projet</button>
     </nav>
+</main>
 
     <div id="popup" class="popup-overlay2" aria-hidden="true">
   <div class="popup-content2" role="dialog" aria-modal="true">
@@ -90,5 +92,4 @@
   </div>
 </div>
 </main>
-
 {% endblock %}
