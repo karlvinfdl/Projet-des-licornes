@@ -1,0 +1,65 @@
+**📋 INSTRUCTIONS COMPLETES - TOUTES LES ENTITÉS/TABLES Projet Cinéma (phpMyAdmin MAMP)**
+
+## 🎯 SCHÉMA COMPLET (8 tables)
+**Fichier:** `complete_schema_cinema.sql` (DROP + CREATE + DONNÉES)
+
+## 🚀 ÉTAPE PAR ÉTAPE:
+
+### 1. Ouvrir phpMyAdmin
+```
+Commande: open http://localhost:8888/phpMyAdmin
+```
+- Login: **root / root**
+- **Si `projet_cinema` existe déjà:** Clic gauche → Opérations → Supprimer (OU ignorez DROP dans SQL)
+
+### 2. Créer `projet_cinema` et exécuter
+```
+a) Bases de données → Nom: projet_cinema → Créer
+b) Clic gauche sur `projet_cinema` (apparaît dans liste comme vos autres DB)
+c) Onglet SQL → Copier TOUT `complete_schema_cinema.sql` → Exécuter
+d) SUCCESS: "✅ SCHÉMA COMPLET CRÉÉ!" 
+```
+**Maintenant `projet_cinema` visible dans votre liste DB!**
+
+### 3. VÉRIFIER (gauche)
+```
+Tables créées:
+✅ etablissements
+✅ salles  
+✅ categories
+✅ films
+✅ film_categories
+✅ seances
+✅ utilisateurs
+✅ reservations
+```
+
+### 4. TESTS REQUÊTES
+```sql
+-- Toutes les tables
+SHOW TABLES;
+
+-- Exemple films + catégories
+SELECT f.titre, c.nom, c.icone FROM films f
+JOIN film_categories fc ON f.id=fc.film_id
+JOIN categories c ON fc.category_id=c.id;
+
+-- Séances disponibles
+SELECT s.horaire_debut, f.titre, sa.capacite-sa.nb_places AS places_restantes
+FROM seances s JOIN films f JOIN salles sa ON s.salle_id=sa.id;
+```
+
+### 5. Test App PHP
+```
+MAMP Apache/MySQL ON
+Ouvrir: http://localhost:8888/projet_cinema/films.php
+```
+
+## 🔧 Config DB (config.php)
+```
+DB: projet_cinema
+Host: 127.0.0.1:8889
+User: root / root
+```
+
+**✅ TOUT prêt!** Entités/tables cinéma complètes avec données d'exemple.

@@ -1,0 +1,36 @@
+**✅ INSTRUCTIONS phpMyAdmin MAMP - NOUVELLE TABLE CATÉGORIES**
+
+## 1. Config DB (si pas fait)
+- Ouvrir: http://localhost:8888/phpMyAdmin
+- Login: root / root
+- Créer DB `projet_cinema` (UTF8)
+- Importer `schema_fixed.sql` (SQL tab → Ctrl+A Ctrl+C depuis VSCode → Go)
+
+## 2. **NOUVELLE TABLE: Catégories** 
+- Sélectionner DB `projet_cinema`
+- Onglet **SQL**
+- Coller **TOUT** contenu de `create_categories_table.sql` (VSCode Ctrl+A Ctrl+C)
+- Cliquer **Exécuter (Go)**
+- Résultat: "Tables categories créées!" + stats
+
+## 3. VÉRIFIER
+```
+Tables visibles: categories, film_categories
+```
+Requête test:
+```sql
+SELECT f.titre, c.nom, c.icone, c.couleur 
+FROM films f 
+JOIN film_categories fc ON f.id=fc.film_id 
+JOIN categories c ON fc.category_id=c.id;
+```
+
+## 4. Test App
+```
+http://localhost:8888/projet_cinema/films.php
+```
+(Voir films avec genres anciens; mise à jour PHP future)
+
+**DB config:** config.php (projet_cinema, 127.0.0.1:8889)
+
+**Terminé!** Nouvelle table prête pour projet cinéma.

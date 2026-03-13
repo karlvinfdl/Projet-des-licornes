@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Films | Unicorn-Multiplex</title>
+<link rel="stylesheet" href="assets/unicorn.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🦄 <span>Unicorn</span>-Multiplex</div>
+        <ul class="nav-links">
+            <li><a href="unicorn.html">Accueil</a></li>
+            <li><a href="films.html" class="active">Films</a></li>
+            <li><a href="seances.html">Séances</a></li>
+            <li><a href="reservations.html">Réservations</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>À l'Affiche</h1>
+            <p>Plongez dans les meilleures expériences cinématographiques du moment.</p>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterFilms('tous', event)">Tous</button>
+                <button class="filter-btn" onclick="filterFilms('Action', event)">Action</button>
+                <button class="filter-btn" onclick="filterFilms('Animation', event)">Animation</button>
+                <button class="filter-btn" onclick="filterFilms('Science-Fiction', event)">Science-Fiction</button>
+            </div>
+        </section>
+
+        <section class="cinema-grid">
+            
+            <div class="movie-card cinema-card" data-genre="Science-Fiction">
+                <div class="movie-poster">
+                    <span class="badge-rating">-12 ans</span>
+                    <div class="poster-placeholder sf-gradient">🎬</div>
+                </div>
+                <div class="cinema-info">
+                    <h3>Interstellar 2</h3>
+                    <p class="movie-meta">Science-Fiction • 2h 45min</p>
+                    <div class="tag-container">
+                        <span class="tag tag-imax">IMAX</span>
+                        <span class="tag tag-4dx">4DX</span>
+                    </div>
+                    <button class="btn-select">Réserver une séance</button>
+                </div>
+            </div>
+
+            <div class="movie-card cinema-card" data-genre="Animation">
+                <div class="movie-poster">
+                    <span class="badge-rating">Tout Public</span>
+                    <div class="poster-placeholder anim-gradient">🦄</div>
+                </div>
+                <div class="cinema-info">
+                    <h3>Avatar</h3>
+                    <p class="movie-meta">Science-Fiction • 1h 32min</p>
+                    <div class="tag-container">
+                        <span class="tag tag-standard">3D 4XD Standard</span>
+                    </div>
+                    <button class="btn-select">Réserver une séance</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Unicorn-Multiplex - Système de réservation centralisé</p>
+    </footer>
+
+    <script>
+        function filterFilms(genre, event) {
+            const cards = document.querySelectorAll('.movie-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Gestion de l'état actif des boutons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filtrage des cartes
+            cards.forEach(card => {
+                if (genre === 'tous' || card.dataset.genre === genre) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
