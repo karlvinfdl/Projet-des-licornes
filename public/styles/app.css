@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Press+Start+2P&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-Supprime les marges par défaut du navigateur sur TOUTE la page
-html,
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+Supprime les marges par défaut du navigateur sur TOUTE la page html,
 body {
     margin: 0 !important;
     padding: 0 !important;
@@ -687,18 +686,17 @@ input:focus {
     align-items: center;
 }
 
-
 /* On isole les textes et boutons pour ton projet uniquement */
-#game-viewportAB button, 
-#game-viewportAB input, 
-#game-viewportAB h1, 
-#game-viewportAB h2, 
-#game-viewportAB h3, 
-#game-viewportAB p, 
-#game-viewportAB span, 
+#game-viewportAB button,
+#game-viewportAB input,
+#game-viewportAB h1,
+#game-viewportAB h2,
+#game-viewportAB h3,
+#game-viewportAB p,
+#game-viewportAB span,
 #game-viewportAB div,
 #game-viewportAB li {
-    font-family: 'Orbitron', sans-serif !important;
+    font-family: "Orbitron", sans-serif !important;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -724,8 +722,8 @@ input:focus {
 ===================================================== */
 #section-accueil.section-jeuAB {
     /* L'image de fond ne prend pas tout l'écran pour garder l'aspect cadre */
-    background-image: url('../images/Alexis/fondfinal.png'); 
-    background-size: contain; 
+    background-image: url("../images/Alexis/fondfinal.png");
+    background-size: contain;
     background-position: center;
 }
 
@@ -734,7 +732,7 @@ input:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 130px; 
+    gap: 130px;
 }
 
 .game-titleAB {
@@ -744,7 +742,7 @@ input:focus {
 }
 
 .blink-buttonAB {
-    background-color: #ffc0cb; 
+    background-color: #ffc0cb;
     border: 4px solid #000;
     border-radius: 50px;
     padding: 15px 40px;
@@ -759,12 +757,19 @@ input:focus {
    ANIMATIONS
 ===================================================== */
 @keyframes blinker {
-    50% { opacity: 0.3; }
+    50% {
+        opacity: 0.3;
+    }
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 /* =====================================================
@@ -780,13 +785,13 @@ input:focus {
     display: none; /* Caché par défaut, activé par .active-AB */
     justify-content: center;
     align-items: center;
-    
+
     /* Couleur de fond si l'image est plus petite que l'écran */
-    background-color: #074151; 
-    
+    background-color: #074151;
+
     /* Image de fond en mode "cadre" */
-    background-image: url('../images/Alexis/ecranDeTitre.png'); 
-    background-size: contain; 
+    background-image: url("../images/Alexis/ecranDeTitre.png");
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -805,14 +810,14 @@ input:focus {
 }
 
 .regles-cardAB {
-    background-color: #ffc0cb; 
+    background-color: #ffc0cb;
     border: 4px solid #000;
     border-radius: 30px;
     padding: 40px;
     /* Ajuste la largeur pour que le texte rentre bien dans ton dessin de cadre */
-    width: 70%; 
+    width: 70%;
     max-width: 650px;
-    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
 .regles-sectionAB {
@@ -866,19 +871,19 @@ body.page-jeuAB {
     position: absolute;
     top: 0;
     width: 100%;
-    padding: 20px 30px; 
+    padding: 20px 30px;
     box-sizing: border-box;
     z-index: 10;
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: space-between;
 }
 
 .vies-containerAB {
     display: flex;
-    flex-direction: row; 
-    gap: 5px; 
+    flex-direction: row;
+    gap: 5px;
     align-items: center;
     min-width: 120px;
 }
@@ -886,7 +891,7 @@ body.page-jeuAB {
 .infos-topAB {
     display: flex;
     width: 100%;
-    justify-content: space-between; 
+    justify-content: space-between;
     font-weight: bold;
 }
 
@@ -920,25 +925,26 @@ body.page-jeuAB {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end; 
+    justify-content: flex-end;
     padding-bottom: 40px;
-    position: relative; 
+    position: relative;
 }
 
 .gaucheAB {
-    background-image: url('../images/fond1.png');
-    background-size: cover; 
-    background-position: left center; 
-    border-right: 2px solid rgba(255,255,255,0.3);
+    background-image: url("../images/fond1.png");
+    background-size: cover;
+    background-position: left center;
+    border-right: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .droiteAB {
-    background-image: url('../images/fond2.png');
-    background-size: 200% 100%; 
-    background-position: right center; 
+    background-image: url("../images/fond2.png");
+    background-size: 200% 100%;
+    background-position: right center;
 }
 
-.personnage-containerAB, .sorcier-containerAB {
+.personnage-containerAB,
+.sorcier-containerAB {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -949,7 +955,7 @@ body.page-jeuAB {
 }
 
 .pixel-spriteAB {
-    width: 300px; 
+    width: 300px;
     height: auto;
     image-rendering: pixelated;
 }
@@ -962,10 +968,11 @@ body.page-jeuAB {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; 
+    gap: 15px;
 }
 
-.bulle-roseAB, .input-reponseAB {
+.bulle-roseAB,
+.input-reponseAB {
     background-color: #f7c3d7;
     color: #000 !important;
     padding: 15px 25px;
@@ -989,8 +996,8 @@ body.page-jeuAB {
 /* Groupe pour aligner VALIDER et PASSER */
 .boutons-groupeAB {
     display: flex;
-    flex-direction: row; 
-    gap: 20px; 
+    flex-direction: row;
+    gap: 20px;
     justify-content: center;
     width: 100%;
 }
@@ -1003,7 +1010,7 @@ body.page-jeuAB {
     padding: 12px 30px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
     min-width: 170px;
     font-size: 12px;
 }
@@ -1030,7 +1037,7 @@ body.page-jeuAB {
 }
 
 .bulle-dialogueAB::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     right: 20px;
@@ -1053,8 +1060,13 @@ body.page-jeuAB {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 /* =====================================================
@@ -1062,7 +1074,7 @@ body.page-jeuAB {
 ===================================================== */
 
 .overlay-ecranAB {
-    display: none; 
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1082,8 +1094,8 @@ body.page-jeuAB {
     text-align: center;
     color: black;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    width: 80%;       
-    max-width: 800px; 
+    width: 80%;
+    max-width: 800px;
 }
 
 .overlay-contenuAB h1 {
@@ -1104,7 +1116,7 @@ body.page-jeuAB {
 }
 
 .win-titleAB {
-    color: #FFD700;
+    color: #ffd700;
     text-shadow: 3px 3px 0px #000;
     font-size: 4.5rem;
     margin: 10px 0;
@@ -1124,17 +1136,17 @@ body.page-jeuAB {
 
 /* Effets de boutons génériques */
 .btn-labelAB {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  pointer-events: none;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    pointer-events: none;
 }
 
 .sprite-buttonAB:active {
-  transform: translateY(4px);
+    transform: translateY(4px);
 }
 /* ===================================== */
 /* ======= CSS Devine le mot fin ======= */
@@ -2309,8 +2321,6 @@ body * {
 /* ===== CSS KARLVIN DEBUT =============== */
 /* ===================================== */
 
-
-
 /* ============================================================
    SYSTÈME DE PAGES (MODALS PLEIN ÉCRAN)
    ============================================================ */
@@ -2328,25 +2338,29 @@ body * {
 }
 
 @keyframes page-in {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* ============================================================
    VARIABLES
    ============================================================ */
 :root {
-    --rose:      #ED1566;
-    --marron:    #73431F;
-    --rouge:     #D90000;
-    --orange:    #FEAA2C;
-    --gris:      #D9D9D9;
-    --op50:      0.5;
-    --ombre:     0 14px 30px rgba(0, 0, 0, .35);
-    --ink:       #111;
+    --rose: #ed1566;
+    --marron: #73431f;
+    --rouge: #d90000;
+    --orange: #feaa2c;
+    --gris: #d9d9d9;
+    --op50: 0.5;
+    --ombre: 0 14px 30px rgba(0, 0, 0, 0.35);
+    --ink: #111;
     --btn-beige: #ead9ab;
-    --btn-bleu:  #0d5f76;
-    --bg-image:  url("/images/Karlvin/backgroundeasy1.png");
+    --btn-bleu: #0d5f76;
+    --bg-image: url("/images/Karlvin/backgroundeasy1.png");
 }
 
 /* ============================================================
@@ -2358,23 +2372,34 @@ body * {
     padding: 0;
 }
 
-
-.htmlKF, .bodyKF {
+.htmlKF,
+.bodyKF {
     width: 100%;
     height: 100%;
-    font-family:"Nunito one";
+    font-family: "Nunito one";
 }
 
 .bodyKF {
     margin: 0;
     overflow: hidden;
-    font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-family:
+        "Nunito",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
     color: #fff;
 }
 
 /* Utilitaires */
-.hidden { display: none !important; }
-.text-center { text-align: center; }
+.hidden {
+    display: none !important;
+}
+.text-center {
+    text-align: center;
+}
 
 /* ============================================================
    FOND GLOBAL
@@ -2398,14 +2423,15 @@ body * {
 
 /* Fond règles */
 .jeu--reglesKF::before {
-    background: url("/images/Karlvin/backgroundregles.png") center / cover no-repeat;
+    background: url("/images/Karlvin/backgroundregles.png") center / cover
+        no-repeat;
     z-index: -1;
 }
 
 /* Fond victoire */
 .jeu--victoireKF::before {
     background:
-        linear-gradient(0deg, rgba(0, 0, 0, .10), rgba(0, 0, 0, .10)),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
         url("/images/Karlvin/backgroundeasy1.png") center / cover no-repeat;
 }
 
@@ -2413,14 +2439,15 @@ body * {
 .jeu--recompenseKF::before,
 .jeu--scoreKF::before {
     background:
-        linear-gradient(0deg, rgba(0, 0, 0, .12), rgba(0, 0, 0, .12)),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
         url("/images/Karlvin/background2.png") center / cover no-repeat;
     z-index: -1;
 }
 
 /* Fond défaite */
 .jeu--defaiteKF::before {
-    background: url("/images/Karlvin/backgrounddefaite1.png") center / cover no-repeat;
+    background: url("/images/Karlvin/backgrounddefaite1.png") center / cover
+        no-repeat;
 }
 
 /* ============================================================
@@ -2436,7 +2463,7 @@ body * {
     justify-content: space-between;
     align-items: flex-start;
     padding: 20px 30px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, .35);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 /* Pages sans infos à gauche (victoire, défaite, récompense) */
@@ -2460,7 +2487,9 @@ body * {
     font-family: "Nunito", system-ui, sans-serif;
 }
 
-.hud__valeur--joueurKF { color: var(--orange); }
+.hud__valeur--joueurKF {
+    color: var(--orange);
+}
 
 .hud__viesKF {
     display: grid;
@@ -2475,28 +2504,40 @@ body * {
     height: auto;
 }
 
-.hud__coeur--perduKF { opacity: var(--op50); }
+.hud__coeur--perduKF {
+    opacity: var(--op50);
+}
 
 /* Combo */
-.hud__comboKF { margin-top: 2px; }
+.hud__comboKF {
+    margin-top: 2px;
+}
 
 .hud__valeur--comboKF {
     color: #f59e0b;
     font-size: 1.15em;
     font-weight: 900;
-    text-shadow: 0 2px 8px rgba(245, 158, 11, .5);
+    text-shadow: 0 2px 8px rgba(245, 158, 11, 0.5);
     animation: combo-glow 0.8s ease-in-out infinite alternate;
 }
 
 @keyframes combo-glow {
-    from { text-shadow: 0 2px 8px rgba(245, 158, 11, .4); }
-    to   { text-shadow: 0 2px 20px rgba(245, 158, 11, .9), 0 0 30px rgba(245, 158, 11, .5); }
+    from {
+        text-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+    }
+    to {
+        text-shadow:
+            0 2px 20px rgba(245, 158, 11, 0.9),
+            0 0 30px rgba(245, 158, 11, 0.5);
+    }
 }
 
 /* ============================================================
    PANNEAU CENTRAL — commun
    ============================================================ */
-.panneauKF { pointer-events: none; }
+.panneauKF {
+    pointer-events: none;
+}
 
 .panneau__boisKF {
     position: fixed;
@@ -2521,7 +2562,7 @@ body * {
 }
 
 .jeu--victoireKF .panneau__boisKF,
-.jeu--defaiteKF  .panneau__boisKF {
+.jeu--defaiteKF .panneau__boisKF {
     width: min(900px, 92vw);
     height: min(780px, 82vh);
     gap: 0;
@@ -2544,15 +2585,28 @@ body * {
     font-size: clamp(26px, 3.2vw, 48px);
     text-align: center;
     color: #fff;
-    text-shadow: 0 4px 0 rgba(0, 0, 0, .25);
+    text-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 /* Overrides par page */
-.jeuKF:not([class*="jeu--"]) .titreKF { font-size: 45px; }
+.jeuKF:not([class*="jeu--"]) .titreKF {
+    font-size: 45px;
+}
 .jeu--victoireKF .titreKF,
-.jeu--defaiteKF  .titreKF  { margin: 10px 0 0; font-size: clamp(28px, 3.5vw, 48px); text-shadow: 0 8px 20px rgba(0, 0, 0, .45); }
-.jeu--scoreKF    .titreKF  { margin: -30px 0 0; font-size: clamp(26px, 3.1vw, 44px); text-shadow: 0 8px 20px rgba(0, 0, 0, .45); }
-.jeu--reglesKF   .titreKF  { margin: 8px 0 14px; text-shadow: 0 8px 20px rgba(0, 0, 0, .45); }
+.jeu--defaiteKF .titreKF {
+    margin: 10px 0 0;
+    font-size: clamp(28px, 3.5vw, 48px);
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+.jeu--scoreKF .titreKF {
+    margin: -30px 0 0;
+    font-size: clamp(26px, 3.1vw, 44px);
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+.jeu--reglesKF .titreKF {
+    margin: 8px 0 14px;
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
 
 /* ============================================================
    BOUTONS — commun
@@ -2567,8 +2621,11 @@ body * {
     border-radius: 14px;
     font-family: "Lilita One", system-ui, sans-serif;
     font-size: clamp(20px, 2.2vw, 32px);
-    box-shadow: 0 10px 0 rgba(0, 0, 0, .22);
-    transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.22);
+    transition:
+        transform 0.12s ease,
+        filter 0.12s ease,
+        box-shadow 0.12s ease;
     user-select: none;
     border: none;
     cursor: pointer;
@@ -2576,13 +2633,21 @@ body * {
 
 .btnKF:active {
     transform: translateY(3px);
-    box-shadow: 0 7px 0 rgba(0, 0, 0, .22);
+    box-shadow: 0 7px 0 rgba(0, 0, 0, 0.22);
 }
 
-.btnKF:hover { filter: brightness(1.05); }
+.btnKF:hover {
+    filter: brightness(1.05);
+}
 
-.btn--backKF { background: var(--btn-bleu); color: var(--btn-beige); }
-.btn--nextKF { background: var(--btn-beige); color: var(--btn-bleu); }
+.btn--backKF {
+    background: var(--btn-bleu);
+    color: var(--btn-beige);
+}
+.btn--nextKF {
+    background: var(--btn-beige);
+    color: var(--btn-bleu);
+}
 
 /* NAV BAS — commun */
 .actionsKF.actions--navKF {
@@ -2624,12 +2689,12 @@ body * {
 .jeu--landingKF .panneau__boisKF {
     position: static;
     transform: none;
-    background: rgba(0, 0, 0, .55);
+    background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(8px);
     border-radius: 20px;
     padding: 30px 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
-    border: 2px solid rgba(255, 255, 255, .15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.15);
     width: 100%;
     height: auto;
 }
@@ -2638,7 +2703,7 @@ body * {
     margin-bottom: 25px;
     margin-top: 0;
     font-size: 28px;
-    text-shadow: 0 3px 10px rgba(0, 0, 0, .6);
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
 }
 
 .menuKF {
@@ -2655,7 +2720,7 @@ body * {
 
 .field__labelKF {
     font-size: 14px;
-    color: rgba(255, 255, 255, .9);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .field__inputKF {
@@ -2679,7 +2744,7 @@ body * {
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background: rgba(255, 255, 255, .15);
+    background: rgba(255, 255, 255, 0.15);
     box-shadow: none;
     transition: 0.2s;
 }
@@ -2687,7 +2752,7 @@ body * {
 .jeu--landingKF .btnKF:hover {
     transform: scale(1.05);
     filter: none;
-    background: rgba(255, 255, 255, .25);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .jeu--landingKF .btnKF:active {
@@ -2695,12 +2760,20 @@ body * {
     box-shadow: none;
 }
 
-.btn--primaryKF { background: linear-gradient(90deg, #ff4fd8, #7c5cff) !important; }
-.btn--primaryKF:hover { filter: brightness(1.1) !important; }
+.btn--primaryKF {
+    background: linear-gradient(90deg, #ff4fd8, #7c5cff) !important;
+}
+.btn--primaryKF:hover {
+    filter: brightness(1.1) !important;
+}
 
-.btn--ghostKF { background: rgba(0, 0, 0, .3) !important; }
+.btn--ghostKF {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
 
-.btn__iconKF { font-size: 18px; }
+.btn__iconKF {
+    font-size: 18px;
+}
 
 /* ============================================================
    ██████ JEU (PLAY) ██████
@@ -2739,7 +2812,7 @@ body * {
     background: var(--gris);
     border-radius: 999px;
     overflow: hidden;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, .18);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.18);
 }
 
 .minuteur__progressionKF {
@@ -2755,7 +2828,7 @@ body * {
     font-size: 2rem;
     font-weight: 900;
     color: var(--rouge);
-    text-shadow: 0 3px 0 rgba(0, 0, 0, .12);
+    text-shadow: 0 3px 0 rgba(0, 0, 0, 0.12);
     font-family: "Nunito", system-ui, sans-serif;
 }
 
@@ -2773,16 +2846,20 @@ body * {
     display: flex;
     justify-content: center;
     align-items: center;
-    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .25));
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.25));
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
     animation: tile-pop 0.18s ease-out;
-    transition: transform .08s ease, opacity .12s ease;
+    transition:
+        transform 0.08s ease,
+        opacity 0.12s ease;
 }
 
-.tuileKF:active { transform: translateY(2px); }
+.tuileKF:active {
+    transform: translateY(2px);
+}
 
 .tuile__lettreKF {
     font-size: 50px;
@@ -2794,7 +2871,7 @@ body * {
 .tuile--inactiveKF {
     opacity: var(--op50);
     pointer-events: none;
-    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .18)) grayscale(.2);
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.18)) grayscale(0.2);
 }
 
 /* Ligne de réponse */
@@ -2823,20 +2900,27 @@ body * {
     font-size: 3.6rem;
     color: var(--rose);
     opacity: 0.5;
-    text-shadow: 0 6px 8px rgba(0, 0, 0, .18);
+    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.18);
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
-    transition: opacity .1s ease, transform .1s ease;
+    transition:
+        opacity 0.1s ease,
+        transform 0.1s ease;
     flex-shrink: 0;
 }
 
-.reponse__lettre--pleineKF { opacity: 1; }
+.reponse__lettre--pleineKF {
+    opacity: 1;
+}
 
-.reponse__lettreKF:hover:not([data-tile-id=""]) { transform: translateY(-2px); }
+.reponse__lettreKF:hover:not([data-tile-id=""]) {
+    transform: translateY(-2px);
+}
 
 /* Mots courts (≤5 lettres) */
-.reponse__ligneKF:has(> .reponse__lettreKF:nth-child(1):nth-last-child(-n+5)) .reponse__lettreKF {
+.reponse__ligneKF:has(> .reponse__lettreKF:nth-child(1):nth-last-child(-n + 5))
+    .reponse__lettreKF {
     font-size: 4.2rem;
     min-width: 52px;
     width: 52px;
@@ -2875,20 +2959,29 @@ body * {
     font-size: 30px;
     color: var(--marron);
     opacity: 0.9;
-    transition: transform .12s ease, opacity .12s ease;
+    transition:
+        transform 0.12s ease,
+        opacity 0.12s ease;
     -webkit-tap-highlight-color: transparent;
 }
 
-.actions__btnKF:hover { opacity: 1; transform: translateY(-2px); }
-.actions__btnKF:active { transform: translateY(1px); }
+.actions__btnKF:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+.actions__btnKF:active {
+    transform: translateY(1px);
+}
 
 .actions__btnKF:focus-visible {
-    outline: 3px solid rgba(254, 170, 44, .9);
+    outline: 3px solid rgba(254, 170, 44, 0.9);
     outline-offset: 4px;
     border-radius: 14px;
 }
 
-.actions__btn--soundKF.is-mutedKF { opacity: 0.6; }
+.actions__btn--soundKF.is-mutedKF {
+    opacity: 0.6;
+}
 
 .actions__btnKF:disabled {
     opacity: 0.35;
@@ -2905,11 +2998,11 @@ body * {
     justify-content: center;
     z-index: 10;
     pointer-events: none;
-    animation: hint-in .25s ease;
+    animation: hint-in 0.25s ease;
 }
 
 .hint-overlay__bubbleKF {
-    background: rgba(13, 95, 118, .96);
+    background: rgba(13, 95, 118, 0.96);
     color: #ead9ab;
     font-family: "Nunito", system-ui, sans-serif;
     font-size: clamp(16px, 2.2vw, 22px);
@@ -2918,66 +3011,117 @@ body * {
     padding: 18px 28px;
     border-radius: 18px;
     max-width: 80%;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, .35);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
     line-height: 1.4;
 }
 
 .hint-overlay__bubbleKF strong {
     display: block;
-    font-size: .8em;
-    opacity: .7;
+    font-size: 0.8em;
+    opacity: 0.7;
     margin-bottom: 6px;
     text-transform: uppercase;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
 }
 
 /* Timer couleur dynamique */
-.minuteur__progression--warningKF { background: #f59e0b !important; }
+.minuteur__progression--warningKF {
+    background: #f59e0b !important;
+}
 
 .minuteur__progression--dangerKF {
     background: var(--rouge) !important;
-    animation: pulse-bar .5s ease-in-out infinite alternate;
+    animation: pulse-bar 0.5s ease-in-out infinite alternate;
 }
 
 @keyframes pulse-bar {
-    from { opacity: 1; }
-    to   { opacity: .55; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.55;
+    }
 }
 
 /* Animations tuiles / réponse */
 @keyframes tile-pop {
-    from { transform: scale(.7); opacity: .4; }
-    to   { transform: scale(1);  opacity: 1;  }
+    from {
+        transform: scale(0.7);
+        opacity: 0.4;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-.reponse__lettre--correctKF { animation: slot-correct .5s ease forwards; }
+.reponse__lettre--correctKF {
+    animation: slot-correct 0.5s ease forwards;
+}
 
 @keyframes slot-correct {
-    0%   { color: var(--rose); text-shadow: none; }
-    30%  { color: #22c55e; text-shadow: 0 0 18px rgba(34, 197, 94, .85); transform: scale(1.2); }
-    100% { color: var(--rose); text-shadow: none; transform: scale(1); }
+    0% {
+        color: var(--rose);
+        text-shadow: none;
+    }
+    30% {
+        color: #22c55e;
+        text-shadow: 0 0 18px rgba(34, 197, 94, 0.85);
+        transform: scale(1.2);
+    }
+    100% {
+        color: var(--rose);
+        text-shadow: none;
+        transform: scale(1);
+    }
 }
 
-.reponse__lettre--wrongKF { animation: slot-wrong .55s ease forwards; }
+.reponse__lettre--wrongKF {
+    animation: slot-wrong 0.55s ease forwards;
+}
 
 @keyframes slot-wrong {
-    0%, 100% { transform: translateX(0);   color: var(--rose); }
-    15%       { transform: translateX(-8px); color: #ef4444; }
-    30%       { transform: translateX( 8px); color: #ef4444; }
-    45%       { transform: translateX(-6px); color: #ef4444; }
-    60%       { transform: translateX( 6px); color: #ef4444; }
-    75%       { transform: translateX(-3px); }
+    0%,
+    100% {
+        transform: translateX(0);
+        color: var(--rose);
+    }
+    15% {
+        transform: translateX(-8px);
+        color: #ef4444;
+    }
+    30% {
+        transform: translateX(8px);
+        color: #ef4444;
+    }
+    45% {
+        transform: translateX(-6px);
+        color: #ef4444;
+    }
+    60% {
+        transform: translateX(6px);
+        color: #ef4444;
+    }
+    75% {
+        transform: translateX(-3px);
+    }
 }
 
 .reponse__lettre--revealKF {
     color: #ea580c !important;
-    text-shadow: 0 0 14px rgba(234, 88, 12, .7);
+    text-shadow: 0 0 14px rgba(234, 88, 12, 0.7);
     opacity: 1 !important;
 }
 
 @keyframes hint-in {
-    from { opacity: 0; transform: scale(.85); }
-    to   { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* ============================================================
@@ -3008,20 +3152,56 @@ body * {
     animation-delay: calc(var(--d) * -10s);
 }
 
-.embersKF .ember__particuleKF:nth-child(3n)   { background-image: var(--ember-1); width: 35px; height: 35px; }
-.embersKF .ember__particuleKF:nth-child(3n+1) { background-image: var(--ember-2); width: 45px; height: 45px; }
-.embersKF .ember__particuleKF:nth-child(3n+2) { background-image: var(--ember-1); width: 40px; height: 40px; }
+.embersKF .ember__particuleKF:nth-child(3n) {
+    background-image: var(--ember-1);
+    width: 35px;
+    height: 35px;
+}
+.embersKF .ember__particuleKF:nth-child(3n + 1) {
+    background-image: var(--ember-2);
+    width: 45px;
+    height: 45px;
+}
+.embersKF .ember__particuleKF:nth-child(3n + 2) {
+    background-image: var(--ember-1);
+    width: 40px;
+    height: 40px;
+}
 
-.embersKF .ember__particuleKF:nth-child(1) { --x: .10; --d: .02; }
-.embersKF .ember__particuleKF:nth-child(2) { --x: .30; --d: .68; }
-.embersKF .ember__particuleKF:nth-child(3) { --x: .50; --d: .35; }
-.embersKF .ember__particuleKF:nth-child(4) { --x: .70; --d: .92; }
-.embersKF .ember__particuleKF:nth-child(5) { --x: .90; --d: .55; }
+.embersKF .ember__particuleKF:nth-child(1) {
+    --x: 0.1;
+    --d: 0.02;
+}
+.embersKF .ember__particuleKF:nth-child(2) {
+    --x: 0.3;
+    --d: 0.68;
+}
+.embersKF .ember__particuleKF:nth-child(3) {
+    --x: 0.5;
+    --d: 0.35;
+}
+.embersKF .ember__particuleKF:nth-child(4) {
+    --x: 0.7;
+    --d: 0.92;
+}
+.embersKF .ember__particuleKF:nth-child(5) {
+    --x: 0.9;
+    --d: 0.55;
+}
 
 @keyframes rise {
-    0%   { transform: translate(0, 0) scale(.6);    opacity: .15; }
-    50%  { transform: translate(-10px, -60vh) scale(1);  opacity: .35; }
-    100% { transform: translate( 10px,-120vh) scale(1.2); opacity: .15; }
+    0% {
+        transform: translate(0, 0) scale(0.6);
+        opacity: 0.15;
+    }
+    50% {
+        transform: translate(-10px, -60vh) scale(1);
+        opacity: 0.35;
+    }
+    100% {
+        transform: translate(10px, -120vh) scale(1.2);
+        opacity: 0.15;
+    }
 }
 
 /* Feuilles (facile) */
@@ -3048,20 +3228,56 @@ body * {
     animation-delay: calc(var(--d) * -10s);
 }
 
-.leavesKF span:nth-child(3n)   { background-image: var(--leaf-1); width: 50px; height: 50px; }
-.leavesKF span:nth-child(3n+1) { background-image: var(--leaf-2); width: 60px; height: 60px; }
-.leavesKF span:nth-child(3n+2) { background-image: var(--leaf-3); width: 55px; height: 55px; }
+.leavesKF span:nth-child(3n) {
+    background-image: var(--leaf-1);
+    width: 50px;
+    height: 50px;
+}
+.leavesKF span:nth-child(3n + 1) {
+    background-image: var(--leaf-2);
+    width: 60px;
+    height: 60px;
+}
+.leavesKF span:nth-child(3n + 2) {
+    background-image: var(--leaf-3);
+    width: 55px;
+    height: 55px;
+}
 
-.leavesKF span:nth-child(1) { --x: .15; --d: .08; }
-.leavesKF span:nth-child(2) { --x: .35; --d: .72; }
-.leavesKF span:nth-child(3) { --x: .55; --d: .28; }
-.leavesKF span:nth-child(4) { --x: .75; --d: .95; }
-.leavesKF span:nth-child(5) { --x: .95; --d: .52; }
+.leavesKF span:nth-child(1) {
+    --x: 0.15;
+    --d: 0.08;
+}
+.leavesKF span:nth-child(2) {
+    --x: 0.35;
+    --d: 0.72;
+}
+.leavesKF span:nth-child(3) {
+    --x: 0.55;
+    --d: 0.28;
+}
+.leavesKF span:nth-child(4) {
+    --x: 0.75;
+    --d: 0.95;
+}
+.leavesKF span:nth-child(5) {
+    --x: 0.95;
+    --d: 0.52;
+}
 
 @keyframes fall {
-    0%   { transform: translate(0, 0) rotate(0deg);     opacity: .6; }
-    50%  { transform: translate(15px, 50vh) rotate(180deg); opacity: .5; }
-    100% { transform: translate(-10px,100vh) rotate(360deg); opacity: .3; }
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(15px, 50vh) rotate(180deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-10px, 100vh) rotate(360deg);
+        opacity: 0.3;
+    }
 }
 
 /* Vent / Désert (moyen) */
@@ -3088,24 +3304,64 @@ body * {
     animation-delay: calc(var(--d) * -8s);
 }
 
-.windKF span:nth-child(3n)   { background-image: var(--wind-1, url("/images/Karlvin/desert1.png")); width: 70px; height: 70px; }
-.windKF span:nth-child(3n+1) { background-image: var(--wind-2, url("/images/Karlvin/desert2.png")); width: 90px; height: 90px; }
-.windKF span:nth-child(3n+2) { background-image: var(--wind-1, url("/images/Karlvin/desert1.png")); width: 75px; height: 75px; }
-
-.windKF span:nth-child(1) { --x: .12; --d: .05; }
-.windKF span:nth-child(2) { --x: .32; --d: .78; }
-.windKF span:nth-child(3) { --x: .58; --d: .22; }
-.windKF span:nth-child(4) { --x: .78; --d: .65; }
-.windKF span:nth-child(5) { --x: .98; --d: .42; }
-
-@keyframes blow {
-    0%   { transform: translateX(-50px); opacity: 0; }
-    20%  { opacity: .5; }
-    80%  { opacity: .5; }
-    100% { transform: translateX(100vw); opacity: 0; }
+.windKF span:nth-child(3n) {
+    background-image: var(--wind-1, url("/images/Karlvin/desert1.png"));
+    width: 70px;
+    height: 70px;
+}
+.windKF span:nth-child(3n + 1) {
+    background-image: var(--wind-2, url("/images/Karlvin/desert2.png"));
+    width: 90px;
+    height: 90px;
+}
+.windKF span:nth-child(3n + 2) {
+    background-image: var(--wind-1, url("/images/Karlvin/desert1.png"));
+    width: 75px;
+    height: 75px;
 }
 
-main.jeuKF { position: relative; z-index: 1; }
+.windKF span:nth-child(1) {
+    --x: 0.12;
+    --d: 0.05;
+}
+.windKF span:nth-child(2) {
+    --x: 0.32;
+    --d: 0.78;
+}
+.windKF span:nth-child(3) {
+    --x: 0.58;
+    --d: 0.22;
+}
+.windKF span:nth-child(4) {
+    --x: 0.78;
+    --d: 0.65;
+}
+.windKF span:nth-child(5) {
+    --x: 0.98;
+    --d: 0.42;
+}
+
+@keyframes blow {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+}
+
+main.jeuKF {
+    position: relative;
+    z-index: 1;
+}
 
 /* ============================================================
    ██████ VICTOIRE / DÉFAITE — mascotte + stats ██████
@@ -3116,7 +3372,7 @@ main.jeuKF { position: relative; z-index: 1; }
     display: block;
     user-select: none;
     -webkit-user-drag: none;
-    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .25));
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.25));
     margin: 8px 0 16px;
 }
 
@@ -3126,7 +3382,7 @@ main.jeuKF { position: relative; z-index: 1; }
     font-size: clamp(17px, 2.2vw, 24px);
     font-weight: 700;
     line-height: 1.7;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, .35);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 .stats__valeurKF {
@@ -3134,8 +3390,12 @@ main.jeuKF { position: relative; z-index: 1; }
     padding-left: 6px;
 }
 
-.jeu--victoireKF  .stats__valeurKF { color: var(--orange); }
-.jeu--defaiteKF   .stats__valeurKF { color: var(--rouge); }
+.jeu--victoireKF .stats__valeurKF {
+    color: var(--orange);
+}
+.jeu--defaiteKF .stats__valeurKF {
+    color: var(--rouge);
+}
 
 /* ============================================================
    ██████ TICKET 3D (récompense + score) ██████
@@ -3158,9 +3418,13 @@ main.jeuKF { position: relative; z-index: 1; }
     will-change: transform;
 }
 
-.jeu--scoreKF .ticket3dKF { width: min(320px, 70vw); }
+.jeu--scoreKF .ticket3dKF {
+    width: min(320px, 70vw);
+}
 
-.ticket3dKF:active { cursor: grabbing; }
+.ticket3dKF:active {
+    cursor: grabbing;
+}
 
 .faceKF {
     position: absolute;
@@ -3168,7 +3432,9 @@ main.jeuKF { position: relative; z-index: 1; }
     backface-visibility: hidden;
 }
 
-.backKF { transform: rotateY(180deg); }
+.backKF {
+    transform: rotateY(180deg);
+}
 
 .ticket3dKF .ticket__imgKF {
     width: 100%;
@@ -3180,18 +3446,23 @@ main.jeuKF { position: relative; z-index: 1; }
     pointer-events: none;
 }
 
-.jeu--scoreKF .ticket3dKF .ticket__imgKF { margin-top: -20px; }
+.jeu--scoreKF .ticket3dKF .ticket__imgKF {
+    margin-top: -20px;
+}
 
 .hintKF {
     margin-top: 14px;
     color: var(--marron);
     font-size: clamp(13px, 1.6vw, 17px);
     font-weight: 800;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
     text-align: center;
 }
 
-.jeu--scoreKF .hintKF { margin-top: -20px; font-size: 16px; }
+.jeu--scoreKF .hintKF {
+    margin-top: -20px;
+    font-size: 16px;
+}
 
 /* ============================================================
    ██████ SCOREBOARD ██████
@@ -3226,34 +3497,51 @@ main.jeuKF { position: relative; z-index: 1; }
 }
 
 .scoreboard__thKF,
-.scoreboard__tdKF { padding: 10px; }
+.scoreboard__tdKF {
+    padding: 10px;
+}
 
 .scoreboard__thKF {
     font-family: "Lilita One", system-ui, sans-serif;
     font-weight: 900;
-    opacity: .85;
+    opacity: 0.85;
     padding-top: 0;
     padding-bottom: 6px;
 }
 
 .scoreboard__th--rankKF,
-.scoreboard__rankKF { width: 72px; text-align: left; opacity: .95; }
+.scoreboard__rankKF {
+    width: 72px;
+    text-align: left;
+    opacity: 0.95;
+}
 
 .scoreboard__th--nameKF,
 .scoreboard__nameKF {
     text-align: center;
-    letter-spacing: .2px;
+    letter-spacing: 0.2px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .scoreboard__th--ptsKF,
-.scoreboard__ptsKF { width: 72px; text-align: right; white-space: nowrap; opacity: .95; }
+.scoreboard__ptsKF {
+    width: 72px;
+    text-align: right;
+    white-space: nowrap;
+    opacity: 0.95;
+}
 
-.scoreboard__name--meKF { color: var(--rouge); }
+.scoreboard__name--meKF {
+    color: var(--rouge);
+}
 
-.scoreboard__ptsKF::after { content: " pts"; font-size: .8em; opacity: .75; }
+.scoreboard__ptsKF::after {
+    content: " pts";
+    font-size: 0.8em;
+    opacity: 0.75;
+}
 
 /* ============================================================
    ██████ RÈGLES ██████
@@ -3291,11 +3579,14 @@ main.jeuKF { position: relative; z-index: 1; }
     font-weight: 900;
     font-size: clamp(15px, 1.55vw, 20px);
     line-height: 1.28;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, .35);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 /* Tuiles règles (plus petites) */
-.jeu--reglesKF .tuilesKF { gap: 12px; margin: 6px 0 14px; }
+.jeu--reglesKF .tuilesKF {
+    gap: 12px;
+    margin: 6px 0 14px;
+}
 
 .jeu--reglesKF .tuileKF {
     width: 72px;
@@ -3304,10 +3595,17 @@ main.jeuKF { position: relative; z-index: 1; }
     cursor: default;
 }
 
-.jeu--reglesKF .tuile__lettreKF { font-size: 34px; }
+.jeu--reglesKF .tuile__lettreKF {
+    font-size: 34px;
+}
 
-.tuile--miniKF { width: 54px; height: 46px; }
-.tuile--miniKF .tuile__lettreKF { font-size: 28px; }
+.tuile--miniKF {
+    width: 54px;
+    height: 46px;
+}
+.tuile--miniKF .tuile__lettreKF {
+    font-size: 28px;
+}
 
 /* Timer démo */
 .timer-demoKF {
@@ -3324,9 +3622,14 @@ main.jeuKF { position: relative; z-index: 1; }
     letter-spacing: 2px;
 }
 
-.timer-demo__secKF { font-size: 18px; }
+.timer-demo__secKF {
+    font-size: 18px;
+}
 
-.jeu--reglesKF .minuteur__barreKF { width: 220px; height: 10px; }
+.jeu--reglesKF .minuteur__barreKF {
+    width: 220px;
+    height: 10px;
+}
 
 /* Points + vies démo */
 .points-demoKF {
@@ -3347,8 +3650,12 @@ main.jeuKF { position: relative; z-index: 1; }
     gap: 8px;
 }
 
-.vieKF { width: 32px; }
-.vie--perduKF { opacity: var(--op50); }
+.vieKF {
+    width: 32px;
+}
+.vie--perduKF {
+    opacity: var(--op50);
+}
 
 /* Conseil */
 .conseil-boxKF {
@@ -3357,7 +3664,7 @@ main.jeuKF { position: relative; z-index: 1; }
     margin: 8px 0 14px;
     padding: 8px 12px;
     border-radius: 14px;
-    background: rgba(255, 255, 255, .18);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .conseil-box__titreKF {
@@ -3366,7 +3673,10 @@ main.jeuKF { position: relative; z-index: 1; }
     color: var(--rose);
 }
 
-.conseil-box__txtKF { font-weight: 900; font-size: .95em; }
+.conseil-box__txtKF {
+    font-weight: 900;
+    font-size: 0.95em;
+}
 
 /* Actions règles */
 .jeu--reglesKF .actionsKF {
@@ -3382,11 +3692,16 @@ main.jeuKF { position: relative; z-index: 1; }
     cursor: pointer;
     font-size: 40px;
     color: var(--marron);
-    opacity: .85;
-    transition: transform .12s ease, opacity .12s ease;
+    opacity: 0.85;
+    transition:
+        transform 0.12s ease,
+        opacity 0.12s ease;
 }
 
-.jeu--reglesKF .actions__btnKF:hover { opacity: 1; transform: translateY(-2px); }
+.jeu--reglesKF .actions__btnKF:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
 
 /* Nav règles */
 .jeu--reglesKF .actionsKF.actions--navKF {
@@ -3400,14 +3715,12 @@ main.jeuKF { position: relative; z-index: 1; }
 .jeu--reglesKF .btnKF {
     padding: 12px 24px;
     font-size: clamp(20px, 2vw, 32px);
-    box-shadow: 0 10px 0 rgba(0, 0, 0, .22);
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.22);
 }
 
 .jeu--reglesKF .btnKF:active {
     transform: translateY(3px);
 }
-
-
 
 /* ===================================== */
 /* ===== CSS KARLVIN FIN =============== */
@@ -3431,12 +3744,16 @@ main.jeuKF { position: relative; z-index: 1; }
 
 /* --- ≤ 1024px --- */
 @media (max-width: 1024px) {
-    .hudKF { padding: 18px; }
-    .hud__ligneKF { font-size: 26px; }
+    .hudKF {
+        padding: 18px;
+    }
+    .hud__ligneKF {
+        font-size: 26px;
+    }
 
     .jeuKF:not([class*="jeu--"]) .panneau__boisKF,
     .jeu--victoireKF .panneau__boisKF,
-    .jeu--defaiteKF  .panneau__boisKF {
+    .jeu--defaiteKF .panneau__boisKF {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -3444,45 +3761,90 @@ main.jeuKF { position: relative; z-index: 1; }
         height: min(800px, 82vh);
     }
 
-    .titreKF { font-size: 42px; }
+    .titreKF {
+        font-size: 42px;
+    }
 
-    .contenuKF { width: 88%; gap: 20px; }
+    .contenuKF {
+        width: 88%;
+        gap: 20px;
+    }
 
-    .minuteurKF { width: 60%; }
-    .minuteur__texteKF { font-size: 22px; }
+    .minuteurKF {
+        width: 60%;
+    }
+    .minuteur__texteKF {
+        font-size: 22px;
+    }
 
-    .niveau__texteKF { font-size: 1.8rem; }
+    .niveau__texteKF {
+        font-size: 1.8rem;
+    }
 
-    .tuileKF { width: 78px; height: 78px; }
-    .tuile__lettreKF { font-size: 44px; }
+    .tuileKF {
+        width: 78px;
+        height: 78px;
+    }
+    .tuile__lettreKF {
+        font-size: 44px;
+    }
 
-    .reponse__lettreKF { font-size: 3.2rem; min-width: 42px; }
+    .reponse__lettreKF {
+        font-size: 3.2rem;
+        min-width: 42px;
+    }
 
-    .footer-actionsKF { gap: 60px; bottom: 18px; }
-    .actions__btnKF { font-size: 40px; }
+    .footer-actionsKF {
+        gap: 60px;
+        bottom: 18px;
+    }
+    .actions__btnKF {
+        font-size: 40px;
+    }
 }
 
 /* --- ≤ 900px (scoreboard) --- */
 @media (max-width: 900px) {
-    .scoreboardKF { width: 90%; font-size: clamp(16px, 3.5vw, 22px); }
+    .scoreboardKF {
+        width: 90%;
+        font-size: clamp(16px, 3.5vw, 22px);
+    }
 
-    .scoreboard__th--rankKF, .scoreboard__rankKF,
-    .scoreboard__th--ptsKF,  .scoreboard__ptsKF { width: 62px; }
+    .scoreboard__th--rankKF,
+    .scoreboard__rankKF,
+    .scoreboard__th--ptsKF,
+    .scoreboard__ptsKF {
+        width: 62px;
+    }
 
-    .actionsKF.actions--navKF { padding: 0 18px; }
+    .actionsKF.actions--navKF {
+        padding: 0 18px;
+    }
 }
 
 /* --- ≤ 950px (règles grille) --- */
 @media (max-width: 950px) {
-    .regles-gridKF { grid-template-columns: 1fr; gap: 18px; }
-    .jeu--reglesKF .minuteur__barreKF { width: 190px; }
-    .jeu--reglesKF .tuileKF { width: 60px; height: 52px; }
-    .jeu--reglesKF .tuile__lettreKF { font-size: 30px; }
+    .regles-gridKF {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .jeu--reglesKF .minuteur__barreKF {
+        width: 190px;
+    }
+    .jeu--reglesKF .tuileKF {
+        width: 60px;
+        height: 52px;
+    }
+    .jeu--reglesKF .tuile__lettreKF {
+        font-size: 30px;
+    }
 }
 
 /* --- ≤ 768px --- */
 @media (max-width: 768px) {
-    body { overflow: hidden; }
+    body {
+        overflow: hidden;
+    }
 
     .hudKF {
         flex-direction: row;
@@ -3492,11 +3854,22 @@ main.jeuKF { position: relative; z-index: 1; }
         padding: 12px 14px 8px;
     }
 
-    .hud__infosKF { gap: 8px; flex: 1; min-width: 0; }
-    .hud__ligneKF { font-size: 20px; }
+    .hud__infosKF {
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+    }
+    .hud__ligneKF {
+        font-size: 20px;
+    }
 
-    .hud__viesKF { grid-template-columns: repeat(5, 28px); gap: 8px 10px; }
-    .hud__coeurKF { width: 28px; }
+    .hud__viesKF {
+        grid-template-columns: repeat(5, 28px);
+        gap: 8px 10px;
+    }
+    .hud__coeurKF {
+        width: 28px;
+    }
 
     /* Jeu */
     .jeuKF:not([class*="jeu--"]) .panneau__boisKF {
@@ -3511,7 +3884,7 @@ main.jeuKF { position: relative; z-index: 1; }
 
     /* Victoire / Défaite / Récompense */
     .jeu--victoireKF .panneau__boisKF,
-    .jeu--defaiteKF  .panneau__boisKF,
+    .jeu--defaiteKF .panneau__boisKF,
     .jeu--recompenseKF .panneau__boisKF {
         top: 50%;
         left: 50%;
@@ -3521,121 +3894,259 @@ main.jeuKF { position: relative; z-index: 1; }
         padding: 8px 16px 70px;
     }
 
-    .jeu--defaiteKF .panneau__boisKF { height: min(680px, 82vh); }
+    .jeu--defaiteKF .panneau__boisKF {
+        height: min(680px, 82vh);
+    }
 
-    .titreKF { font-size: 34px; margin: 10px 0 6px; }
+    .titreKF {
+        font-size: 34px;
+        margin: 10px 0 6px;
+    }
 
-    .contenuKF { width: 94%; gap: 18px; margin-top: 10px; flex: 1; min-height: 0; }
+    .contenuKF {
+        width: 94%;
+        gap: 18px;
+        margin-top: 10px;
+        flex: 1;
+        min-height: 0;
+    }
 
-    .minuteurKF { width: 90%; gap: 12px; }
-    .minuteur__texteKF { font-size: 18px; }
-    .minuteur__barreKF { height: 14px; }
+    .minuteurKF {
+        width: 90%;
+        gap: 12px;
+    }
+    .minuteur__texteKF {
+        font-size: 18px;
+    }
+    .minuteur__barreKF {
+        height: 14px;
+    }
 
-    .niveau__texteKF { font-size: 1.6rem; }
+    .niveau__texteKF {
+        font-size: 1.6rem;
+    }
 
-    .tuilesKF { gap: 12px; }
-    .tuileKF { width: 64px; height: 64px; }
-    .tuile__lettreKF { font-size: 36px; }
+    .tuilesKF {
+        gap: 12px;
+    }
+    .tuileKF {
+        width: 64px;
+        height: 64px;
+    }
+    .tuile__lettreKF {
+        font-size: 36px;
+    }
 
-    .reponseKF { max-width: 88vw; }
-    .reponse__ligneKF { gap: 10px; }
-    .reponse__lettreKF { font-size: 2.8rem; min-width: 34px; width: 34px; }
+    .reponseKF {
+        max-width: 88vw;
+    }
+    .reponse__ligneKF {
+        gap: 10px;
+    }
+    .reponse__lettreKF {
+        font-size: 2.8rem;
+        min-width: 34px;
+        width: 34px;
+    }
 
-    .reponse__ligneKF:has(> .reponse__lettreKF:nth-child(8)) .reponse__lettreKF {
-        font-size: 2.2rem; min-width: 28px; width: 28px;
+    .reponse__ligneKF:has(> .reponse__lettreKF:nth-child(8))
+        .reponse__lettreKF {
+        font-size: 2.2rem;
+        min-width: 28px;
+        width: 28px;
     }
 
     .footer-actionsKF {
         position: absolute;
-        left: 0; right: 0; bottom: 18px;
+        left: 0;
+        right: 0;
+        bottom: 18px;
         display: flex;
         justify-content: center;
         gap: 44px;
         margin-bottom: 0;
     }
 
-    .actions__btnKF { font-size: 34px; }
+    .actions__btnKF {
+        font-size: 34px;
+    }
 
-    .mascotKF { width: min(200px, 46vw); }
-    .statsKF { font-size: clamp(15px, 4vw, 20px); }
-    .ticket3dKF { width: min(420px, 86vw); }
+    .mascotKF {
+        width: min(200px, 46vw);
+    }
+    .statsKF {
+        font-size: clamp(15px, 4vw, 20px);
+    }
+    .ticket3dKF {
+        width: min(420px, 86vw);
+    }
 
-    .actionsKF.actions--navKF { padding: 0 18px; bottom: 18px; }
-    .btnKF { font-size: clamp(18px, 4.5vw, 26px); padding: 12px 20px; }
+    .actionsKF.actions--navKF {
+        padding: 0 18px;
+        bottom: 18px;
+    }
+    .btnKF {
+        font-size: clamp(18px, 4.5vw, 26px);
+        padding: 12px 20px;
+    }
 
     /* Landing */
-    .jeu--landingKF .panneau__bois--menuKF { padding: 20px; }
-    .jeu--landingKF .titreKF { font-size: 22px; }
+    .jeu--landingKF .panneau__bois--menuKF {
+        padding: 20px;
+    }
+    .jeu--landingKF .titreKF {
+        font-size: 22px;
+    }
 }
 
 /* --- ≤ 600px (nav jeu) --- */
 @media (max-width: 600px) {
-    .actionsKF.actions--navKF { padding: 0 16px; bottom: 16px; }
-    .btnKF { font-size: 18px; padding: 10px 18px; }
+    .actionsKF.actions--navKF {
+        padding: 0 16px;
+        bottom: 16px;
+    }
+    .btnKF {
+        font-size: 18px;
+        padding: 10px 18px;
+    }
 }
 
 /* --- ≤ 480px --- */
 @media (max-width: 480px) {
-    .hud__viesKF { grid-template-columns: repeat(5, 26px); gap: 6px 8px; }
-    .hud__coeurKF { width: 26px; }
+    .hud__viesKF {
+        grid-template-columns: repeat(5, 26px);
+        gap: 6px 8px;
+    }
+    .hud__coeurKF {
+        width: 26px;
+    }
 
     .jeuKF:not([class*="jeu--"]) .jeuKF,
-    .jeuKF { height: 100svh; }
+    .jeuKF {
+        height: 100svh;
+    }
 
     .jeuKF::before {
         background-image: url("/images/Karlvin/testmobile3.png");
         background-position: 50% 45%;
     }
 
-    .titreKF { font-size: 28px; }
-
-    .minuteurKF { width: 100%; }
-    .minuteur__texteKF { font-size: 16px; }
-
-    .niveau__texteKF { font-size: 1.4rem; }
-
-    .tuileKF { width: 56px; height: 56px; }
-    .tuile__lettreKF { font-size: 32px; }
-
-    .reponseKF { max-width: 92vw; }
-    .reponse__lettreKF { font-size: 2.4rem; min-width: 30px; width: 30px; }
-
-    .reponse__ligneKF:has(> .reponse__lettreKF:nth-child(8)) .reponse__lettreKF {
-        font-size: 2rem; min-width: 24px; width: 24px;
+    .titreKF {
+        font-size: 28px;
     }
 
-    .footer-actionsKF { gap: 32px; }
-    .actions__btnKF { font-size: 30px; }
+    .minuteurKF {
+        width: 100%;
+    }
+    .minuteur__texteKF {
+        font-size: 16px;
+    }
+
+    .niveau__texteKF {
+        font-size: 1.4rem;
+    }
+
+    .tuileKF {
+        width: 56px;
+        height: 56px;
+    }
+    .tuile__lettreKF {
+        font-size: 32px;
+    }
+
+    .reponseKF {
+        max-width: 92vw;
+    }
+    .reponse__lettreKF {
+        font-size: 2.4rem;
+        min-width: 30px;
+        width: 30px;
+    }
+
+    .reponse__ligneKF:has(> .reponse__lettreKF:nth-child(8))
+        .reponse__lettreKF {
+        font-size: 2rem;
+        min-width: 24px;
+        width: 24px;
+    }
+
+    .footer-actionsKF {
+        gap: 32px;
+    }
+    .actions__btnKF {
+        font-size: 30px;
+    }
 
     /* Victoire / Défaite / Récompense */
     .jeu--victoireKF .panneau__boisKF,
-    .jeu--recompenseKF .panneau__boisKF { height: min(640px, 86vh); padding: 6px 12px 60px; }
-    .jeu--defaiteKF .panneau__boisKF { height: min(620px, 84vh); padding: 6px 12px 60px; }
+    .jeu--recompenseKF .panneau__boisKF {
+        height: min(640px, 86vh);
+        padding: 6px 12px 60px;
+    }
+    .jeu--defaiteKF .panneau__boisKF {
+        height: min(620px, 84vh);
+        padding: 6px 12px 60px;
+    }
 
-    .mascotKF { width: min(170px, 48vw); }
-    .statsKF { font-size: 15px; line-height: 1.6; }
-    .ticket3dKF { width: min(340px, 90vw); }
-    .hintKF { font-size: 13px; }
+    .mascotKF {
+        width: min(170px, 48vw);
+    }
+    .statsKF {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+    .ticket3dKF {
+        width: min(340px, 90vw);
+    }
+    .hintKF {
+        font-size: 13px;
+    }
 
-    .actionsKF.actions--navKF { padding: 0 14px; }
-    .btnKF { font-size: 18px; padding: 10px 16px; }
+    .actionsKF.actions--navKF {
+        padding: 0 14px;
+    }
+    .btnKF {
+        font-size: 18px;
+        padding: 10px 16px;
+    }
 }
 
 /* --- ≤ 360px --- */
 @media (max-width: 360px) {
-    .hud__ligneKF { font-size: 16px; }
-    .titreKF { font-size: 24px; }
-    .tuileKF { width: 50px; height: 50px; }
-    .tuile__lettreKF { font-size: 28px; }
-    .reponse__lettreKF { font-size: 2.1rem; min-width: 26px; }
-    .footer-actionsKF { gap: 26px; }
-    .actions__btnKF { font-size: 28px; }
+    .hud__ligneKF {
+        font-size: 16px;
+    }
+    .titreKF {
+        font-size: 24px;
+    }
+    .tuileKF {
+        width: 50px;
+        height: 50px;
+    }
+    .tuile__lettreKF {
+        font-size: 28px;
+    }
+    .reponse__lettreKF {
+        font-size: 2.1rem;
+        min-width: 26px;
+    }
+    .footer-actionsKF {
+        gap: 26px;
+    }
+    .actions__btnKF {
+        font-size: 28px;
+    }
 }
 
 /* --- Faible hauteur --- */
 @media (max-height: 700px) and (max-width: 768px) {
-    .footer-actionsKF { position: sticky; bottom: 10px; }
-    .jeuKF:not([class*="jeu--"]) .panneau__boisKF { padding-bottom: 80px; }
+    .footer-actionsKF {
+        position: sticky;
+        bottom: 10px;
+    }
+    .jeuKF:not([class*="jeu--"]) .panneau__boisKF {
+        padding-bottom: 80px;
+    }
 }
 /* ===================================== */
 /* ======= RESPONSIVE FIN=============== */
