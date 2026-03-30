@@ -692,28 +692,43 @@ input:focus {
 /* ===================================== */
 /* ====== CSS Devine le mot DÉBUT ====== */
 /* ===================================== */
-body,
-html {
-body,
-html,
-button,
-input,
-h1,
-h2,
-h3,
-p,
-span,
-div {
-    font-family: "Orbitron", sans-serif !important;
+#game-viewportAB {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #074151; /* Couleur de fond visible autour de l'image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* On isole les textes et boutons pour ton projet uniquement */
+#game-viewportAB button, 
+#game-viewportAB input, 
+#game-viewportAB h1, 
+#game-viewportAB h2, 
+#game-viewportAB h3, 
+#game-viewportAB p, 
+#game-viewportAB span, 
+#game-viewportAB div,
+#game-viewportAB li {
+    font-family: 'Orbitron', sans-serif !important;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-body {
-    /* Ton image de fond en PNG */
-    background-color: #074151;
-    background-image: url("../images/fondfinal.png");
-    background-size: contain;
+/* Gestion des sections (modales plein écran) */
+.section-jeuAB {
+    display: none;
+    width: 100%;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -750,7 +765,7 @@ body {
 }
 
 .blink-buttonAB {
-    background-color: #ffc0cb;
+    background-color: #ffc0cb; 
     border: 4px solid #000;
     border-radius: 50px;
     padding: 15px 40px;
@@ -765,19 +780,12 @@ body {
    ANIMATIONS
 ===================================================== */
 @keyframes blinker {
-    50% {
-        opacity: 0.3;
-    }
+    50% { opacity: 0.3; }
 }
 
 @keyframes float {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 /* =====================================================
@@ -793,9 +801,13 @@ body {
     display: none; /* Caché par défaut, activé par .active-AB */
     justify-content: center;
     align-items: center;
-    background-color: #074151;
-    background-image: url("../images/ecranDeTitre.png");
-    background-size: contain;
+    
+    /* Couleur de fond si l'image est plus petite que l'écran */
+    background-color: #074151; 
+    
+    /* Image de fond en mode "cadre" */
+    background-image: url('../images/Alexis/ecranDeTitre.png'); 
+    background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -814,13 +826,14 @@ body {
 }
 
 .regles-cardAB {
-    background-color: #ffc0cb;
+    background-color: #ffc0cb; 
     border: 4px solid #000;
     border-radius: 30px;
     padding: 40px;
-    width: 80%;
-    max-width: 700px;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.1);
+    /* Ajuste la largeur pour que le texte rentre bien dans ton dessin de cadre */
+    width: 70%; 
+    max-width: 650px;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
 }
 
 .regles-sectionAB {
@@ -874,19 +887,19 @@ body.page-jeuAB {
     position: absolute;
     top: 0;
     width: 100%;
-    padding: 20px 30px;
+    padding: 20px 30px; 
     box-sizing: border-box;
     z-index: 10;
-    font-size: 1.1rem;
+    font-size: 1.1rem; 
     display: flex;
-    align-items: center;
+    align-items: center; 
     justify-content: space-between;
 }
 
 .vies-containerAB {
     display: flex;
-    flex-direction: row;
-    gap: 5px;
+    flex-direction: row; 
+    gap: 5px; 
     align-items: center;
     min-width: 120px;
 }
@@ -894,7 +907,7 @@ body.page-jeuAB {
 .infos-topAB {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-between; 
     font-weight: bold;
 }
 
@@ -928,26 +941,25 @@ body.page-jeuAB {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-end; 
     padding-bottom: 40px;
-    position: relative;
+    position: relative; 
 }
 
 .gaucheAB {
-    background-image: url("../images/fond1.png");
-    background-size: cover;
-    background-position: left center;
-    border-right: 2px solid rgba(255, 255, 255, 0.3);
+    background-image: url('../images/fond1.png');
+    background-size: cover; 
+    background-position: left center; 
+    border-right: 2px solid rgba(255,255,255,0.3);
 }
 
 .droiteAB {
-    background-image: url("../images/fond2.png");
-    background-size: 200% 100%;
-    background-position: right center;
+    background-image: url('../images/fond2.png');
+    background-size: 200% 100%; 
+    background-position: right center; 
 }
 
-.personnage-containerAB,
-.sorcier-containerAB {
+.personnage-containerAB, .sorcier-containerAB {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -958,7 +970,7 @@ body.page-jeuAB {
 }
 
 .pixel-spriteAB {
-    width: 300px;
+    width: 300px; 
     height: auto;
     image-rendering: pixelated;
 }
@@ -971,11 +983,10 @@ body.page-jeuAB {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 15px; 
 }
 
-.bulle-roseAB,
-.input-reponseAB {
+.bulle-roseAB, .input-reponseAB {
     background-color: #f7c3d7;
     color: #000 !important;
     padding: 15px 25px;
@@ -999,8 +1010,8 @@ body.page-jeuAB {
 /* Groupe pour aligner VALIDER et PASSER */
 .boutons-groupeAB {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    flex-direction: row; 
+    gap: 20px; 
     justify-content: center;
     width: 100%;
 }
@@ -1013,7 +1024,7 @@ body.page-jeuAB {
     padding: 12px 30px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 0 rgba(0,0,0,0.2);
     min-width: 170px;
     font-size: 12px;
 }
@@ -1040,7 +1051,7 @@ body.page-jeuAB {
 }
 
 .bulle-dialogueAB::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -10px;
     right: 20px;
@@ -1063,13 +1074,8 @@ body.page-jeuAB {
 }
 
 @keyframes bounce {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 /* =====================================================
@@ -1077,7 +1083,7 @@ body.page-jeuAB {
 ===================================================== */
 
 .overlay-ecranAB {
-    display: none;
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -1097,8 +1103,8 @@ body.page-jeuAB {
     text-align: center;
     color: black;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    width: 80%;
-    max-width: 800px;
+    width: 80%;       
+    max-width: 800px; 
 }
 
 .overlay-contenuAB h1 {
@@ -1119,7 +1125,7 @@ body.page-jeuAB {
 }
 
 .win-titleAB {
-    color: #ffd700;
+    color: #FFD700;
     text-shadow: 3px 3px 0px #000;
     font-size: 4.5rem;
     margin: 10px 0;
@@ -1139,17 +1145,17 @@ body.page-jeuAB {
 
 /* Effets de boutons génériques */
 .btn-labelAB {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  pointer-events: none;
 }
 
 .sprite-buttonAB:active {
-    transform: translateY(4px);
+  transform: translateY(4px);
 }
 /* ===================================== */
 /* ======= CSS Devine le mot fin ======= */
