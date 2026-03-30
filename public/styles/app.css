@@ -19,6 +19,7 @@ body {
 /* ============== LANDING DEBUT========= */
 /* ===================================== */
 
+/*
 :root {
     --pink: #e60b62;
     --pink-dark: #c80a55;
@@ -57,21 +58,11 @@ body {
     font-family: "Irish Grover", system-ui, sans-serif;
 }
 
-/* IMPORTANT: base pour positionner .iles et .right-col */
 body {
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
 }
-
-/* Fond */
-/* .bg {
-  position: fixed;
-  inset: 0;
-  background: url("/background.png") center/cover no-repeat;
-  filter: saturate(1.05) contrast(1.02);
-  z-index: 0;
-} */
 
 .bg-video {
     position: fixed;
@@ -81,12 +72,10 @@ body {
     width: 100%;
     height: 100%;
 
-    object-fit: cover; /* comme background-size: cover */
-
+    object-fit: cover;
     z-index: 0;
 }
 
-/* Colonne à droite (formulaire) */
 .right-col {
     position: absolute;
     top: 0;
@@ -100,22 +89,20 @@ body {
     gap: 10px;
     padding: 30px 30px 0px;
 
-    z-index: 2; /* au-dessus du fond */
+    z-index: 2;
 }
 
-/* Zone des îles à gauche */
 .iles {
     position: absolute;
     top: 0;
     left: 0;
 
-    width: calc(100% - 420px); /* laisse la place du formulaire */
+    width: calc(100% - 420px);
     height: 100vh;
 
-    z-index: 1; /* au-dessus du fond, sous le formulaire */
+    z-index: 1;
 }
 
-/* Cartes */
 .card {
     background: var(--card-bg);
     border: 3px solid var(--pink);
@@ -134,11 +121,10 @@ body {
     line-height: 1.1;
 }
 
-/* Form */
-
 .card-form {
     height: 350px;
 }
+
 .card-form h2 {
     margin: 4px 0 12px;
     text-align: center;
@@ -169,11 +155,8 @@ label span {
 input {
     height: 34px;
     border-radius: 10px;
-
-    /* ✅ correction: si tu veux un focus visible, il faut une bordure */
     border: 2px solid rgba(230, 11, 98, 0.35);
     padding: 0 10px;
-
     outline: none;
     background: white;
 }
@@ -183,7 +166,6 @@ input:focus {
     box-shadow: 0 0 0 3px rgba(230, 11, 98, 0.2);
 }
 
-/* Boutons */
 .btn {
     justify-self: center;
     margin-top: 6px;
@@ -236,7 +218,6 @@ input:focus {
     font-weight: 600;
 }
 
-/* Easter egg */
 .egg {
     display: grid;
     grid-template-columns: 90px 1fr;
@@ -264,7 +245,6 @@ input:focus {
     font-weight: 700;
 }
 
-/* Îles */
 .island {
     position: absolute;
     height: auto;
@@ -279,7 +259,6 @@ input:focus {
     cursor: pointer;
 }
 
-/* Positions îles (à ajuster si besoin) */
 .island-roue {
     top: 6%;
     left: 10%;
@@ -314,7 +293,6 @@ input:focus {
     width: 480px;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
     .right-col {
         position: relative;
@@ -338,6 +316,7 @@ input:focus {
         font-size: 22px;
     }
 }
+*/
 
 /* ===================================== */
 /* ============== LANDING FIN=========== */
@@ -2371,16 +2350,16 @@ body * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Lilita one';
 }
 
-html, body,
+
 .htmlKF, .bodyKF {
     width: 100%;
     height: 100%;
+    font-family:"Nunito one";
 }
 
-body, .bodyKF {
+.bodyKF {
     margin: 0;
     overflow: hidden;
     font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
