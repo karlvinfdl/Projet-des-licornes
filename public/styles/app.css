@@ -694,13 +694,6 @@ input:focus {
 /* ===================================== */
 body,
 html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden; /* Empêche le scroll */
-}
-
 body,
 html,
 button,
@@ -723,25 +716,35 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
+}
+
+.active-AB {
+    display: flex !important;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 /* =====================================================
-   ÉCRAN D'ACCUEIL
+   ÉCRAN D'ACCUEIL (Modif : Image centrée sans plein écran)
 ===================================================== */
+#section-accueil.section-jeuAB {
+    /* L'image de fond ne prend pas tout l'écran pour garder l'aspect cadre */
+    background-image: url('../images/Alexis/fondfinal.png'); 
+    background-size: contain; 
+    background-position: center;
+}
 
 .game-containerAB {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 130px; /* Espace entre le titre et le bouton */
+    gap: 130px; 
 }
 
 .game-titleAB {
-    max-width: 80%;
+    max-width: 60%; /* Ajusté pour bien s'intégrer dans le cadre */
     height: auto;
     animation: float 3s ease-in-out infinite;
 }
@@ -758,6 +761,9 @@ body {
     animation: blinker 1.5s linear infinite;
 }
 
+/* =====================================================
+   ANIMATIONS
+===================================================== */
 @keyframes blinker {
     50% {
         opacity: 0.3;
@@ -775,16 +781,16 @@ body {
 }
 
 /* =====================================================
-   PAGE DES REGLES
+   PAGE DES REGLES (ISOLÉE)
 ===================================================== */
 
-body.page-reglesAB {
+.section-reglesAB {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%; /* Prend toute la place du viewport parent */
+    width: 100%;
     overflow: hidden;
-    display: flex;
+    display: none; /* Caché par défaut, activé par .active-AB */
     justify-content: center;
     align-items: center;
     background-color: #074151;
@@ -792,6 +798,11 @@ body.page-reglesAB {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* On s'assure que si la section est active, elle s'affiche */
+.section-reglesAB.active-AB {
+    display: flex !important;
 }
 
 .regles-wrapperAB {
