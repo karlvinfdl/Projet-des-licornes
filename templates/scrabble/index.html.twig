@@ -1,0 +1,1404 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scrabble des licornes{% endblock %}
+
+{% block body %}
+{# ================================================================
+   PAGE LANDING
+   ================================================================ #}
+<div class="pageKF page--activeKF" id="page-landing">
+    <main class="jeuKF jeu--landingKF" aria-label="Menu Scrabble des licornes">
+        <section class="panneauKF" aria-label="Menu">
+            <div class="panneau__boisKF panneau__bois--menuKF">
+                <h1 class="titreKF">Scrabble des licornes</h1>
+
+                <div class="menuKF">
+                    <label class="fieldKF">
+                        <span class="field__labelKF">Nom du joueur</span>
+                        <input class="field__inputKF" id="playerInput" type="text" placeholder="Karlvin">
+                    </label>
+
+                    <button class="btnKF btn--primaryKF" id="btnPlay" type="button">
+                        <span class="btn__iconKF">🦄</span> Jouer
+                    </button>
+                    <button class="btnKF" id="btnRules" type="button">Règles</button>
+
+                    <button class="btnKF btn--ghostKF" id="btnSoundLanding" type="button" aria-pressed="true">
+                        <span class="btn__iconKF" id="soundIcon">🔊</span>
+                        <span id="soundLabel">Son : ON</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+{# ================================================================
+   PAGE RÈGLES
+   ================================================================ #}
+<div class="pageKF" id="page-regles">
+    <main class="jeuKF jeu--reglesKF" aria-label="Règles du jeu">
+        <section class="panneauKF">
+            <div class="panneau__boisKF panneau__bois--reglesKF">
+
+                <h1 class="titreKF">Règles du jeu<br>Scrabble des licornes</h1>
+
+                <div class="regles-gridKF">
+
+                    <div class="regles-colKF">
+                        <p class="regles-texteKF">
+                            <strong>1.</strong> Comment jouer : touche les tuiles pour placer les lettres dans les cases.
+                        </p>
+
+                        <div class="tuilesKF tuiles--reglesKF" aria-label="Exemple de tuiles">
+                            <div class="tuileKF"><span class="tuile__lettreKF">A</span></div>
+                            <div class="tuileKF"><span class="tuile__lettreKF">N</span></div>
+                            <div class="tuileKF"><span class="tuile__lettreKF">C</span></div>
+                            <div class="tuileKF"><span class="tuile__lettreKF">T</span></div>
+                            <div class="tuileKF"><span class="tuile__lettreKF">E</span></div>
+                            <div class="tuileKF"><span class="tuile__lettreKF">O</span></div>
+                        </div>
+
+                        <p class="regles-texteKF">
+                            <strong>2.</strong> Tu as <strong>15 secondes</strong> par manche pour valider ta réponse (la barre descend).
+                        </p>
+
+                        <div class="timer-demoKF" aria-label="Exemple de timer">
+                            <span class="timer-demo__motKF">O C E A N</span>
+                            <span class="timer-demo__secKF">15 sec</span>
+                            <div class="minuteur__barreKF" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65">
+                                <div class="minuteur__progressionKF" style="width:65%"></div>
+                            </div>
+                        </div>
+
+                        <p class="regles-texteKF">
+                            <strong>3.</strong> Bonne réponse : tu gagnes des points.<br>
+                            Mauvaise réponse / temps fini : tu perds un cœur (une vie).
+                        </p>
+
+                        <div class="points-demoKF">
+                            <span class="points-demo__ptsKF">+10 pts</span>
+                            <div class="viesKF" aria-label="Exemple de vies">
+                                <img class="vieKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                                <img class="vieKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                                <img class="vieKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                                <img class="vieKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                                <img class="vieKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                                <img class="vieKF vie--perduKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                                <img class="vieKF vie--perduKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                                <img class="vieKF vie--perduKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                                <img class="vieKF vie--perduKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                                <img class="vieKF vie--perduKF" src="{{ asset('images/Karlvin/vie.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="regles-colKF">
+                        <p class="regles-texteKF">
+                            <strong>4.</strong> Durée d'une partie : <strong>10 manches</strong> (si tu ne perds pas toutes tes vies avant).
+                        </p>
+
+                        <div class="conseil-boxKF" aria-label="Conseil">
+                            <span class="conseil-box__titreKF">Conseil</span>
+                            <span class="conseil-box__txtKF">évite les lettres pièges</span>
+                            <div class="tuileKF tuile--miniKF" aria-hidden="true"><span class="tuile__lettreKF">T</span></div>
+                        </div>
+
+                        <p class="regles-texteKF">
+                            <strong>5.</strong> Bonus &amp; aides : pour chaque mot, tu as 1 indice
+                            <button class="actions__btnKF" type="button" aria-label="Indice">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </button>disponible.<br>
+                            Tu peux aussi mélanger
+                            <button class="actions__btnKF" type="button" aria-label="Mélanger">
+                                <i class="fa-solid fa-mortar-pestle"></i>
+                            </button>
+                            les lettres et effacer
+                            <button class="actions__btnKF" type="button" aria-label="Effacer">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                            ta sélection pour recommencer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="actionsKF actions--navKF" aria-label="Navigation">
+        <button type="button" class="btnKF btn--backKF" onclick="showPage('landing')">Quitter</button>
+        <button type="button" class="btnKF btn--nextKF" onclick="showPage('jeu')">Compris !</button>
+    </footer>
+</div>
+
+{# ================================================================
+   PAGE JEU (PLAY)
+   ================================================================ #}
+<div class="pageKF" id="page-jeu">
+    <main class="jeuKF" role="application" aria-label="Scrabble des licornes">
+
+        <header class="hudKF">
+            <div class="hud__infosKF">
+                <p class="hud__ligneKF">
+                    Joueur :
+                    <span class="hud__valeurKF hud__valeur--joueurKF" id="player-name">Karlvin</span>
+                </p>
+                <p class="hud__ligneKF">
+                    Score :
+                    <span class="hud__valeurKF" id="score">0 pts</span>
+                </p>
+                <p class="hud__ligneKF">
+                    Trouver
+                    <span class="hud__valeurKF" id="progress">0/10</span>
+                </p>
+            </div>
+
+            <div class="hud__viesKF" aria-label="Vies" id="lives"></div>
+        </header>
+
+        <section class="panneauKF" aria-label="Zone de jeu">
+            <div class="panneau__boisKF">
+                <h1 class="titreKF">Scrabble des licornes</h1>
+
+                <div class="contenuKF">
+                    <div class="minuteurKF" aria-label="Minuteur">
+                        <span class="minuteur__texteKF" id="timer-text">15 sec</span>
+                        <div class="minuteur__barreKF"
+                             role="progressbar"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="100">
+                            <div class="minuteur__progressionKF" id="timer-bar" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div class="niveauKF" aria-label="Difficulté">
+                        <span class="niveau__texteKF" id="difficulty">Facile</span>
+                    </div>
+
+                    <div class="tuilesKF" aria-label="Lettres proposées"></div>
+
+                    <div class="reponseKF" aria-label="Mot en cours">
+                        <div class="reponse__ligneKF" aria-label="Emplacements"></div>
+                    </div>
+                </div>
+
+                <footer class="footer-actionsKF" aria-label="Actions">
+                    <button class="actions__btnKF" type="button" aria-label="Mélanger" id="btn-mix">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                    </button>
+                    <button class="actions__btnKF" type="button" aria-label="Indice" id="btn-hint">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </button>
+                    <button class="actions__btnKF" type="button" aria-label="Effacer" id="btn-clear">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    <button class="actions__btnKF actions__btn--soundKF"
+                            type="button"
+                            aria-label="Son activé"
+                            aria-pressed="true">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </footer>
+            </div>
+
+            <div class="embersKF" aria-hidden="true">
+                <span class="ember__particuleKF"></span><span class="ember__particuleKF"></span>
+                <span class="ember__particuleKF"></span><span class="ember__particuleKF"></span>
+                <span class="ember__particuleKF"></span><span class="ember__particuleKF"></span>
+                <span class="ember__particuleKF"></span><span class="ember__particuleKF"></span>
+                <span class="ember__particuleKF"></span><span class="ember__particuleKF"></span>
+            </div>
+        </section>
+
+        <footer class="actionsKF actions--navKF" aria-label="Navigation">
+            <button type="button" class="btnKF btn--backKF" onclick="stopTimer(); showPage('landing')">Quitter</button>
+            <button type="button" class="btnKF btn--nextKF" onclick="showPage('scores')">Scores</button>
+        </footer>
+    </main>
+</div>
+
+{# ================================================================
+   PAGE VICTOIRE
+   ================================================================ #}
+<div class="pageKF" id="page-victoire">
+    <main class="jeuKF jeu--victoireKF" role="application" aria-label="Victoire">
+
+        <header class="hudKF">
+            <div class="hud__viesKF" aria-label="Vies" id="victory-lives"></div>
+        </header>
+
+        <section class="panneauKF" aria-label="Victoire">
+            <div class="panneau__boisKF">
+                <h1 class="titreKF">🎉 Victoire !</h1>
+                <img class="mascotKF" src="{{ asset('images/Karlvin/heureux.png') }}" alt="Licorne heureuse">
+                <div class="statsKF" aria-label="Statistiques">
+                    <div class="stats__ligneKF">Joueur : <span class="stats__valeurKF" id="victory-player">—</span></div>
+                    <div class="stats__ligneKF">Mots trouvés : <span class="stats__valeurKF" id="victory-found">0/10</span></div>
+                    <div class="stats__ligneKF">Score : <span class="stats__valeurKF" id="victory-last-score">0 pts</span></div>
+                    <div class="stats__ligneKF">Meilleur score : <span class="stats__valeurKF" id="victory-best-score">0 pts</span></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="actionsKF actions--navKF" aria-label="Actions">
+            <button type="button" class="btnKF btn--backKF" onclick="showPage('jeu')">Rejouer</button>
+            <button type="button" class="btnKF btn--nextKF" onclick="showPage('recompense')">Récompense</button>
+        </footer>
+    </main>
+</div>
+
+{# ================================================================
+   PAGE DÉFAITE
+   ================================================================ #}
+<div class="pageKF" id="page-defaite">
+    <main class="jeuKF jeu--defaiteKF" role="application" aria-label="Défaite">
+
+        <header class="hudKF">
+            <div class="hud__viesKF" aria-label="Vies" id="defeat-lives"></div>
+        </header>
+
+        <section class="panneauKF" aria-label="Résultat">
+            <div class="panneau__boisKF">
+                <h1 class="titreKF">Défaite...</h1>
+                <img class="mascotKF" src="{{ asset('images/Karlvin/triste.png') }}" alt="Licorne triste">
+                <div class="statsKF" aria-label="Statistiques">
+                    <div class="stats__ligneKF">Joueur : <span class="stats__valeurKF" id="defeat-player">—</span></div>
+                    <div class="stats__ligneKF">Mots trouvés : <span class="stats__valeurKF" id="defeat-found">0/10</span></div>
+                    <div class="stats__ligneKF">Score : <span class="stats__valeurKF" id="defeat-last-score">0 pts</span></div>
+                    <div class="stats__ligneKF">Meilleur score : <span class="stats__valeurKF" id="defeat-best-score">0 pts</span></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="actionsKF actions--navKF" aria-label="Actions">
+            <button type="button" class="btnKF btn--backKF" onclick="showPage('jeu')">Rejouer</button>
+            <button type="button" class="btnKF btn--nextKF" onclick="showPage('scores')">Scores</button>
+        </footer>
+    </main>
+</div>
+
+{# ================================================================
+   PAGE SCORES
+   ================================================================ #}
+<div class="pageKF" id="page-scores">
+    <main class="jeuKF jeu--scoreKF" role="application" aria-label="Scores">
+
+        <section class="panneauKF" aria-label="Classement">
+            <div class="panneau__boisKF panneau__bois--scoreKF">
+                <h1 class="titreKF">Tableau des scores</h1>
+
+                <table class="scoreboardKF" aria-label="Classement">
+                    <thead class="scoreboard__theadKF">
+                        <tr class="scoreboard__trKF">
+                            <th scope="col" class="scoreboard__thKF scoreboard__th--rankKF">Cl.</th>
+                            <th scope="col" class="scoreboard__thKF scoreboard__th--nameKF">Nom</th>
+                            <th scope="col" class="scoreboard__thKF scoreboard__th--ptsKF">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody class="scoreboard__tbodyKF" id="scorebody"></tbody>
+                </table>
+
+                <div class="sceneKF">
+                    <div class="ticket3dKF" id="ticket3d-scores" aria-label="Médaille manipulable">
+                        <div class="faceKF frontKF">
+                            <img class="ticket__imgKF" src="{{ asset('images/Karlvin/medaille1_front.png') }}" alt="Médaille recto" draggable="false">
+                        </div>
+                        <div class="faceKF backKF">
+                            <img class="ticket__imgKF" src="{{ asset('images/Karlvin/medaille1_back.png') }}" alt="Médaille verso" draggable="false">
+                        </div>
+                    </div>
+                </div>
+
+                <p class="hintKF">Fais tourner la médaille</p>
+            </div>
+        </section>
+
+        <footer class="actionsKF actions--navKF" aria-label="Actions">
+            <button type="button" class="btnKF btn--backKF" onclick="showPage('jeu')">Rejouer</button>
+            <button type="button" class="btnKF btn--nextKF" onclick="showPage('recompense')">Suivant</button>
+        </footer>
+    </main>
+</div>
+
+{# ================================================================
+   PAGE RÉCOMPENSE
+   ================================================================ #}
+<div class="pageKF" id="page-recompense">
+    <main class="jeuKF jeu--recompenseKF" role="application" aria-label="Récompense">
+
+        <section class="panneauKF" aria-label="Golden Ticket">
+            <div class="panneau__boisKF">
+                <h1 class="titreKF">Scrabble des licornes</h1>
+
+                <div class="sceneKF">
+                    <div class="ticket3dKF" id="ticket3d-reward" aria-label="Golden Ticket manipulable">
+                        <div class="faceKF frontKF">
+                            <img class="ticket__imgKF" src="{{ asset('images/Karlvin/ticket_front.png') }}" alt="Ticket recto" draggable="false">
+                        </div>
+                        <div class="faceKF backKF">
+                            <img class="ticket__imgKF" src="{{ asset('images/Karlvin/ticket_back.png') }}" alt="Ticket verso" draggable="false">
+                        </div>
+                    </div>
+                </div>
+
+                <p class="hintKF">Fais glisser le ticket pour le tourner</p>
+            </div>
+        </section>
+
+        <footer class="actionsKF actions--navKF" aria-label="Actions">
+            <button type="button" class="btnKF btn--backKF" onclick="showPage('landing')">Rejouer</button>
+            <button type="button" class="btnKF btn--nextKF" onclick="showPage('scores')">Scores</button>
+        </footer>
+    </main>
+</div>
+
+{# ================================================================
+   SCRIPT — toute la logique JS
+   ================================================================ #}
+<script>
+// Routes Symfony injectées
+window.UNICORN_API_WORDS  = '{{ path('jeux_api_mots') }}';
+window.UNICORN_SCORE_SAVE = '{{ path('jeux_score_save') }}';
+window.UNICORN_API_SCORES = '{{ path('jeux_api_scores') }}';
+
+(() => {
+    // ─────────────────────────────────────────────
+    // Flags pour éviter les doublons d'événements
+    // ─────────────────────────────────────────────
+    let _gameSetupDone   = false;
+    let _gameDataLoaded  = false;
+
+    // ─────────────────────────────────────────────
+    // Storage helpers
+    // ─────────────────────────────────────────────
+    const STORAGE = {
+        META:   "unicorn.meta.v1",
+        LAST:   "unicorn.last.v1",
+        SCORES: "unicorn.scores.v1",
+    };
+
+    window.UnicornGame = { loadMeta, saveMeta, loadScores, clearScores };
+
+    function safeJSONParse(str, fallback) {
+        try { return JSON.parse(str); } catch { return fallback; }
+    }
+    function loadMeta()  { return safeJSONParse(localStorage.getItem(STORAGE.META)   || "{}", {}); }
+    function loadLast()  { return safeJSONParse(localStorage.getItem(STORAGE.LAST)   || "{}", {}); }
+    function loadScores(){ const a = safeJSONParse(localStorage.getItem(STORAGE.SCORES) || "[]", []); return Array.isArray(a) ? a : []; }
+    function saveMeta(meta)   { const next = { ...loadMeta(), ...meta }; localStorage.setItem(STORAGE.META,   JSON.stringify(next)); return next; }
+    function saveLast(data)   { localStorage.setItem(STORAGE.LAST,   JSON.stringify(data)); }
+    function saveScores(arr)  { localStorage.setItem(STORAGE.SCORES, JSON.stringify(arr)); }
+    function clearScores()    { localStorage.removeItem(STORAGE.SCORES); }
+
+    function addScoreEntry(entry) {
+        const scores = loadScores();
+        scores.push(entry);
+        scores.sort((a, b) => b.score - a.score || String(b.date).localeCompare(String(a.date)));
+        saveScores(scores.slice(0, 10));
+
+        fetch(window.UNICORN_SCORE_SAVE || "/jeux/score/save", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                player: entry.player || loadMeta().player || "Joueur",
+                score:  entry.score  || 0,
+                win:    entry.win    || false,
+                found:  entry.found  || 0,
+                target: entry.target || 10,
+            }),
+        }).catch(() => {});
+    }
+
+    function bestScore() {
+        const scores = loadScores();
+        return scores.length ? scores[0].score : 0;
+    }
+
+    // ─────────────────────────────────────────────
+    // Toast
+    // ─────────────────────────────────────────────
+    function toast(message, type = "info", duration = 1600) {
+        const el = document.createElement("div");
+        el.textContent = message;
+        document.body.appendChild(el);
+        Object.assign(el.style, {
+            position: "fixed", left: "50%", bottom: "90px",
+            transform: "translateX(-50%)", padding: "12px 20px",
+            borderRadius: "12px", zIndex: 9999,
+            fontFamily: '"Lilita One", system-ui, sans-serif',
+            fontSize: "18px", fontWeight: "bold", color: "#fff",
+            background: type === "error"   ? "rgba(220,50,50,0.95)"
+                      : type === "success" ? "rgba(40,180,90,0.95)"
+                      : type === "combo"   ? "rgba(255,140,0,0.95)"
+                      :                     "rgba(0,0,0,0.80)",
+            maxWidth: "92vw", textAlign: "center",
+            pointerEvents: "none", boxShadow: "0 4px 16px rgba(0,0,0,0.3)",
+            transition: "opacity 300ms",
+        });
+        setTimeout(() => {
+            el.style.opacity = "0";
+            setTimeout(() => el.remove(), 320);
+        }, duration);
+    }
+
+    // ─────────────────────────────────────────────
+    // État du jeu
+    // ─────────────────────────────────────────────
+    const gs = (window.gameState = window.gameState || {});
+
+    const gameData = {
+        regles: {
+            easy:   { ptsWord: 8,  bonusTemps: 1, tickets: 1 },
+            medium: { ptsWord: 12, bonusTemps: 2, tickets: 2 },
+            hard:   { ptsWord: 18, bonusTemps: 3, tickets: 3 },
+        },
+        mots:  { easy: [], medium: [], hard: [] },
+        hints: {},
+    };
+
+    gs.soundEnabled      = gs.soundEnabled      ?? true;
+    gs.usedWords         = Array.isArray(gs.usedWords) ? gs.usedWords : [];
+    gs.currentDifficulty = gs.currentDifficulty ?? "easy";
+    gs.currentWord       = gs.currentWord       ?? "";
+    gs.lock              = gs.lock              ?? false;
+    gs.score             = gs.score             ?? 0;
+    gs.found             = gs.found             ?? 0;
+    gs.targetFound       = gs.targetFound       ?? 10;
+    gs.maxLives          = gs.maxLives          ?? 5;
+    gs.lives             = gs.lives             ?? gs.maxLives;
+    gs.timePerRound      = gs.timePerRound      ?? 15;
+    gs.timeLeft          = gs.timeLeft          ?? gs.timePerRound;
+    gs.timerId           = gs.timerId           ?? null;
+    gs.combo             = gs.combo             ?? 0;
+    gs.roundNum          = gs.roundNum          ?? 0;
+    gs.mistakes          = gs.mistakes          ?? 0;
+    gs.hintUsed          = gs.hintUsed          ?? false;
+    gs.currentHint       = gs.currentHint       ?? null;
+
+    // ─────────────────────────────────────────────
+    // Navigation entre pages (système modal)
+    // ─────────────────────────────────────────────
+    window.showPage = function(name) {
+        if (name !== 'jeu') stopTimer();
+
+        document.querySelectorAll('.pageKF').forEach(p => p.classList.remove('page--activeKF'));
+        const target = document.getElementById('page-' + name);
+        if (target) target.classList.add('page--activeKF');
+
+        switch (name) {
+            case 'jeu':
+                startGame();
+                break;
+            case 'victoire':
+                renderEndScreen('victory');
+                break;
+            case 'defaite':
+                renderEndScreen('defeat');
+                break;
+            case 'scores':
+                renderScoreboard();
+                init3DObject('ticket3d-scores');
+                break;
+            case 'recompense':
+                init3DObject('ticket3d-reward');
+                break;
+        }
+    };
+
+    // ─────────────────────────────────────────────
+    // Combo
+    // ─────────────────────────────────────────────
+    function getComboMultiplier() {
+        if (gs.combo >= 5) return 2.0;
+        if (gs.combo >= 3) return 1.5;
+        return 1.0;
+    }
+
+    function updateComboUI() {
+        let comboEl = document.getElementById("hud-combo");
+        if (!comboEl) {
+            const infos = document.querySelector("#page-jeu .hud__infosKF");
+            if (!infos) return;
+            comboEl = document.createElement("p");
+            comboEl.id = "hud-combo";
+            comboEl.className = "hud__ligneKF hud__comboKF";
+            infos.appendChild(comboEl);
+        }
+        if (gs.combo >= 2) {
+            const mult = getComboMultiplier();
+            const fire = gs.combo >= 5 ? "🔥🔥" : gs.combo >= 3 ? "🔥" : "⚡";
+            comboEl.innerHTML = `Combo ${fire} <span class="hud__valeurKF hud__valeur--comboKF">×${mult.toFixed(1)}</span>`;
+            comboEl.style.display = "";
+        } else {
+            comboEl.style.display = "none";
+        }
+    }
+
+    // ─────────────────────────────────────────────
+    // Difficulté progressive
+    // ─────────────────────────────────────────────
+    const DIFFICULTY_WEIGHTS = [
+        [75, 25,  0],  // round 1
+        [75, 25,  0],  // round 2
+        [75, 25,  0],  // round 3
+        [25, 55, 20],  // round 4
+        [25, 55, 20],  // round 5
+        [25, 55, 20],  // round 6
+        [10, 35, 55],  // round 7
+        [10, 35, 55],  // round 8
+        [10, 35, 55],  // round 9
+        [10, 35, 55],  // round 10
+    ];
+
+    function pickDifficultyForRound() {
+        const idx = Math.max(0, Math.min(gs.roundNum - 1, DIFFICULTY_WEIGHTS.length - 1));
+        const [we, wm, wh] = DIFFICULTY_WEIGHTS[idx];
+        const total = we + wm + wh;
+        const r = Math.random() * total;
+        if      (r < we)        gs.currentDifficulty = "easy";
+        else if (r < we + wm)   gs.currentDifficulty = "medium";
+        else                    gs.currentDifficulty = "hard";
+    }
+
+    function pickRandomWord(diff) {
+        const list = gameData.mots[diff] || [];
+        if (!list.length) return "ERREUR";
+        let available = list.filter(w => !gs.usedWords.includes(w));
+        if (!available.length) { gs.usedWords = []; available = list.slice(); }
+        const word = available[Math.floor(Math.random() * available.length)];
+        gs.usedWords.push(word);
+        return String(word).toUpperCase();
+    }
+
+    // ─────────────────────────────────────────────
+    // Fond + particules
+    // ─────────────────────────────────────────────
+    function updateBackgroundByDifficulty() {
+        const backgrounds = {
+            easy:   "/images/Karlvin/backgroundeasy1.png",
+            medium: "/images/Karlvin/backgroundmedium1.png",
+            hard:   "/images/Karlvin/backgroundhard1.png",
+        };
+        document.documentElement.style.setProperty(
+            "--bg-image", `url("${backgrounds[gs.currentDifficulty] || backgrounds.easy}")`
+        );
+        const diffEl = document.getElementById("difficulty");
+        if (diffEl) diffEl.textContent = gs.currentDifficulty === "hard" ? "Difficile"
+                                       : gs.currentDifficulty === "medium" ? "Moyen" : "Facile";
+    }
+
+    function updateParticlesByDifficulty() {
+        document.querySelector(".embersKF, .leavesKF, .windKF")?.remove();
+    }
+
+    // ─────────────────────────────────────────────
+    // HUD
+    // ─────────────────────────────────────────────
+    function renderHearts() {
+        const livesBox = document.getElementById("lives");
+        if (!livesBox) return;
+        livesBox.innerHTML = "";
+        for (let i = 0; i < gs.maxLives; i++) {
+            const img = document.createElement("img");
+            img.className = "hud__coeurKF";
+            img.src = "/images/Karlvin/vie.png";
+            img.alt = "vie";
+            livesBox.appendChild(img);
+        }
+        updateHeartsUI();
+    }
+
+    function updateHeartsUI() {
+        const hearts = Array.from(document.querySelectorAll("#lives .hud__coeurKF"));
+        hearts.forEach((h, i) => h.classList.toggle("hud__coeur--perduKF", i >= gs.lives));
+    }
+
+    function updateHUD() {
+        const scoreEl    = document.getElementById("score");
+        const progressEl = document.getElementById("progress");
+        const playerEl   = document.getElementById("player-name");
+        const roundEl    = document.getElementById("hud-round");
+
+        if (scoreEl)    scoreEl.textContent    = `${gs.score} pts`;
+        if (progressEl) progressEl.textContent = `${gs.found}/${gs.targetFound}`;
+        if (playerEl)   playerEl.textContent   = loadMeta().player || "Karlvin";
+        if (roundEl)    roundEl.textContent    = `Essai ${gs.roundNum}`;
+
+        updateHeartsUI();
+        updateComboUI();
+    }
+
+    function setupRoundCounter() {
+        const infos = document.querySelector("#page-jeu .hud__infosKF");
+        if (!infos || document.getElementById("hud-round")) return;
+        const p = document.createElement("p");
+        p.id = "hud-round";
+        p.className = "hud__ligneKF";
+        p.textContent = "Essai 0";
+        infos.appendChild(p);
+    }
+
+    function updateHintButton() {
+        const hintBtn = document.getElementById("btn-hint");
+        if (!hintBtn) return;
+        hintBtn.disabled = gs.hintUsed;
+        hintBtn.style.opacity = gs.hintUsed ? "0.35" : "";
+    }
+
+    // ─────────────────────────────────────────────
+    // Timer
+    // ─────────────────────────────────────────────
+    window.stopTimer = function() {
+        if (gs.timerId) clearInterval(gs.timerId);
+        gs.timerId = null;
+    };
+
+    function renderTimer() {
+        const txt  = document.getElementById("timer-text");
+        const prog = document.getElementById("timer-bar");
+        const bar  = document.querySelector("#page-jeu .minuteur__barreKF");
+        const t    = Math.max(0, gs.timeLeft);
+
+        if (txt)  txt.textContent = `${Math.ceil(t)} sec`;
+        const pct = (t / gs.timePerRound) * 100;
+        if (prog) {
+            prog.style.width = `${Math.max(0, Math.min(100, pct))}%`;
+            prog.classList.remove("minuteur__progression--warningKF", "minuteur__progression--dangerKF");
+            if      (pct <= 20) prog.classList.add("minuteur__progression--dangerKF");
+            else if (pct <= 45) prog.classList.add("minuteur__progression--warningKF");
+        }
+        if (bar) bar.setAttribute("aria-valuenow", String(Math.round(pct)));
+    }
+
+    function startTimer(onTimeUp) {
+        stopTimer();
+        gs.timeLeft = gs.timePerRound;
+        renderTimer();
+        gs.timerId = setInterval(() => {
+            gs.timeLeft = Math.max(0, gs.timeLeft - 0.1);
+            renderTimer();
+            if (gs.timeLeft <= 0) { stopTimer(); if (typeof onTimeUp === "function") onTimeUp(); }
+        }, 100);
+    }
+
+    function timeUp() {
+        playSound("timeout");
+        gs.combo = 0;
+        updateComboUI();
+        revealCorrectAnswer(() => {
+            loseLife();
+            if (gs.lives > 0) setTimeout(() => startNewRound(), 400);
+        });
+    }
+
+    // ─────────────────────────────────────────────
+    // Animations de slots
+    // ─────────────────────────────────────────────
+    function flashSlots(type, callback) {
+        const slots = getSlots();
+        const cls = type === "correct" ? "reponse__lettre--correctKF" : "reponse__lettre--wrongKF";
+        slots.forEach(s => s.classList.add(cls));
+        setTimeout(() => {
+            slots.forEach(s => s.classList.remove(cls));
+            if (typeof callback === "function") callback();
+        }, type === "correct" ? 500 : 600);
+    }
+
+    function revealCorrectAnswer(callback) {
+        const slots = getSlots();
+        const word  = gs.currentWord || "";
+        slots.forEach((s, i) => {
+            s.textContent = word[i] || "_";
+            s.classList.add("reponse__lettre--revealKF");
+        });
+        toast(`⏳ Réponse : ${word}`, "error", 1200);
+        setTimeout(() => {
+            slots.forEach(s => s.classList.remove("reponse__lettre--revealKF"));
+            if (typeof callback === "function") callback();
+        }, 1200);
+    }
+
+    // ─────────────────────────────────────────────
+    // Tuiles + slots
+    // ─────────────────────────────────────────────
+    function shuffleArray(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function renderWord(word) {
+        const tilesWrap  = document.querySelector("#page-jeu .tuilesKF");
+        const answerLine = document.querySelector("#page-jeu .reponse__ligneKF");
+        if (!tilesWrap || !answerLine) return;
+
+        answerLine.innerHTML = "";
+        tilesWrap.innerHTML  = "";
+
+        for (let i = 0; i < word.length; i++) {
+            const slot = document.createElement("span");
+            slot.className = "reponse__lettreKF";
+            slot.textContent = "_";
+            answerLine.appendChild(slot);
+        }
+
+        const letters = shuffleArray(word.split(""));
+        const stamp   = Date.now();
+        letters.forEach((ch, i) => {
+            const tile = document.createElement("div");
+            tile.className      = "tuileKF";
+            tile.dataset.tileId = `tile-${stamp}-${i}`;
+            tile.innerHTML      = `<span class="tuile__lettreKF">${ch}</span>`;
+            tilesWrap.appendChild(tile);
+        });
+
+        document.dispatchEvent(new CustomEvent("word:rendered"));
+    }
+
+    function getSlots() {
+        return Array.from(document.querySelectorAll("#page-jeu .reponse__ligneKF .reponse__lettreKF"));
+    }
+
+    function getSubmittedWord() {
+        return getSlots().map(s => (s.textContent || "").trim()).filter(ch => ch && ch !== "_").join("").toUpperCase();
+    }
+
+    function isAnswerComplete() {
+        const slots = getSlots();
+        return slots.length > 0 && slots.every(s => (s.textContent || "").trim() !== "_");
+    }
+
+    // ─────────────────────────────────────────────
+    // Score
+    // ─────────────────────────────────────────────
+    function computeScoreGain() {
+        const rules     = gameData.regles[gs.currentDifficulty] || gameData.regles.easy;
+        const base      = Number(rules.ptsWord    ?? 8);
+        const timeBonus = Math.max(0, Math.floor(gs.timeLeft)) * Number(rules.bonusTemps ?? 1);
+        return Math.round((base + timeBonus) * getComboMultiplier());
+    }
+
+    // ─────────────────────────────────────────────
+    // Validation
+    // ─────────────────────────────────────────────
+    function validateAnswer() {
+        if (gs.lock) return;
+        if (!isAnswerComplete()) {
+            playSound("error");
+            toast("Remplis toutes les cases 😅", "error");
+            return;
+        }
+
+        gs.lock = true;
+        stopTimer();
+
+        const submitted = getSubmittedWord();
+        const expected  = String(gs.currentWord || "").toUpperCase();
+
+        if (submitted === expected) {
+            gs.combo += 1;
+            const gain = computeScoreGain();
+            gs.score  += gain;
+            gs.found  += 1;
+            playSound("success");
+
+            let msg = `✅ +${gain} pts`;
+            if      (gs.combo === 3) msg = `🔥 +${gain} pts — Combo ×1.5 !`;
+            else if (gs.combo === 5) msg = `🔥🔥 +${gain} pts — MEGA COMBO ×2 !`;
+            else if (gs.combo  > 5) msg = `🔥🔥 +${gain} pts — Combo ×2 !`;
+
+            flashSlots("correct", () => {
+                toast(msg, "success");
+                updateHUD();
+                if (gs.found >= gs.targetFound) { endGame(true); return; }
+                setTimeout(() => startNewRound(), 400);
+            });
+        } else {
+            gs.combo = 0;
+            updateComboUI();
+            playSound("error");
+            revealCorrectAnswer(() => {
+                flashSlots("wrong", () => {
+                    loseLife();
+                    if (gs.lives > 0) setTimeout(() => startNewRound(), 400);
+                });
+            });
+        }
+    }
+
+    document.addEventListener("keydown", (e) => { if (e.key === "Enter") validateAnswer(); });
+
+    // ─────────────────────────────────────────────
+    // Saisie clavier
+    // ─────────────────────────────────────────────
+    function setupKeyboardInput() {
+        document.addEventListener("keydown", (e) => {
+            const activePage = document.querySelector('.pageKF.page--activeKF');
+            if (!activePage || activePage.id !== 'page-jeu') return;
+            if (gs.lock) return;
+
+            if (e.key === "Backspace") {
+                e.preventDefault();
+                const slots    = getSlots();
+                const tilesWrap = document.querySelector("#page-jeu .tuilesKF");
+                if (!tilesWrap) return;
+                const filled = slots.filter(s => {
+                    const v = (s.textContent || "").trim();
+                    return v && v !== "_" && !s.dataset.hintKF;
+                });
+                if (!filled.length) return;
+                const last   = filled[filled.length - 1];
+                const tileId = last.dataset.tileId;
+                if (tileId) {
+                    const tile = tilesWrap.querySelector(`.tuileKF[data-tile-id="${CSS.escape(tileId)}"]`);
+                    if (tile) { tile.classList.remove("tuile--inactiveKF"); tile.style.pointerEvents = ""; tile.setAttribute("aria-disabled", "false"); }
+                }
+                last.textContent = "_";
+                last.classList.remove("reponse__lettre--pleineKF");
+                delete last.dataset.tileId;
+                playSound("click");
+                return;
+            }
+
+            if (!/^[a-zA-Z]$/.test(e.key)) return;
+            e.preventDefault();
+            const letter    = e.key.toUpperCase();
+            const tilesWrap = document.querySelector("#page-jeu .tuilesKF");
+            if (!tilesWrap) return;
+            const tiles = Array.from(tilesWrap.querySelectorAll(".tuileKF"));
+            const tile  = tiles.find(t => {
+                if (t.classList.contains("tuile--inactiveKF")) return false;
+                const el = t.querySelector(".tuile__lettreKF");
+                return (el ? el.textContent : t.textContent).trim() === letter;
+            });
+            if (!tile) return;
+            const emptySlot = getSlots().find(s => (s.textContent || "").trim() === "_");
+            if (!emptySlot) return;
+            emptySlot.textContent = letter;
+            emptySlot.classList.add("reponse__lettre--pleineKF");
+            emptySlot.dataset.tileId = tile.dataset.tileId;
+            tile.classList.add("tuile--inactiveKF");
+            tile.style.pointerEvents = "none";
+            tile.setAttribute("aria-disabled", "true");
+            playSound("click");
+            if (isAnswerComplete()) setTimeout(validateAnswer, 120);
+        });
+    }
+
+    // ─────────────────────────────────────────────
+    // Boutons jeu
+    // ─────────────────────────────────────────────
+    function shuffleTiles() {
+        const tilesWrap = document.querySelector("#page-jeu .tuilesKF");
+        if (!tilesWrap) return;
+        const tiles    = Array.from(tilesWrap.querySelectorAll(".tuileKF"));
+        const active   = tiles.filter(t => !t.classList.contains("tuile--inactiveKF"));
+        const inactive = tiles.filter(t =>  t.classList.contains("tuile--inactiveKF"));
+        tilesWrap.innerHTML = "";
+        [...shuffleArray(active), ...inactive].forEach(t => tilesWrap.appendChild(t));
+        playSound("click");
+    }
+
+    function applyHint() {
+        if (gs.lock || gs.hintUsed) return;
+        gs.hintUsed = true;
+        gs.timeLeft = Math.max(0, gs.timeLeft - 2);
+        renderTimer();
+        updateHintButton();
+        playSound("click");
+
+        const phrase = gs.currentHint || gameData.hints[gs.currentWord] || null;
+        if (phrase) { showHintOverlay(phrase); return; }
+
+        const slots = getSlots();
+        if (!slots.length) return;
+        const empty = slots.map((s, i) => ({ s, i })).filter(({ s }) => (s.textContent || "").trim() === "_");
+        if (!empty.length) return;
+        const pick    = empty[Math.floor(Math.random() * empty.length)];
+        const needed  = gs.currentWord[pick.i];
+        const tilesWrap = document.querySelector("#page-jeu .tuilesKF");
+        if (!tilesWrap) return;
+        const tile = Array.from(tilesWrap.querySelectorAll(".tuileKF")).find(t => {
+            if (t.classList.contains("tuile--inactiveKF")) return false;
+            const el = t.querySelector(".tuile__lettreKF");
+            return (el ? el.textContent : t.textContent).trim() === needed;
+        });
+        if (!tile) { toast("Indice impossible 😅", "error"); return; }
+        pick.s.textContent = needed;
+        pick.s.classList.add("reponse__lettre--pleineKF");
+        pick.s.dataset.tileId = tile.dataset.tileId;
+        pick.s.dataset.hintKF = "1";
+        tile.classList.add("tuile--inactiveKF");
+        tile.style.pointerEvents = "none";
+        tile.setAttribute("aria-disabled", "true");
+        toast("💡 Lettre placée ! (−2s)", "info");
+        if (isAnswerComplete()) setTimeout(validateAnswer, 120);
+    }
+
+    function showHintOverlay(phrase) {
+        document.querySelector(".hint-overlayKF")?.remove();
+        const bois = document.querySelector("#page-jeu .panneau__boisKF");
+        if (!bois) { toast(`💡 ${phrase}`, "info", 4000); return; }
+        const overlay = document.createElement("div");
+        overlay.className = "hint-overlayKF";
+        overlay.innerHTML = `<div class="hint-overlay__bubbleKF"><strong>💡 Indice</strong>${phrase}</div>`;
+        bois.appendChild(overlay);
+        setTimeout(() => {
+            overlay.style.transition = "opacity 0.3s";
+            overlay.style.opacity = "0";
+            setTimeout(() => overlay.remove(), 320);
+        }, 3500);
+    }
+
+    function setupPlacementOnce() {
+        const tilesWrap  = document.querySelector("#page-jeu .tuilesKF");
+        const answerLine = document.querySelector("#page-jeu .reponse__ligneKF");
+        if (!tilesWrap || !answerLine) return;
+
+        let slots = [];
+        const refreshSlots  = () => { slots = Array.from(answerLine.querySelectorAll(".reponse__lettreKF")); };
+        const isSlotEmpty   = s => { const v = (s.textContent || "").trim(); return v === "_" || v === ""; };
+        const findEmpty     = () => slots.find(isSlotEmpty);
+        const setTileUsed   = (tile, used) => {
+            tile.classList.toggle("tuile--inactiveKF", used);
+            tile.style.pointerEvents = used ? "none" : "";
+            tile.setAttribute("aria-disabled", used ? "true" : "false");
+        };
+        const getTileLetter = tile => { const el = tile.querySelector(".tuile__lettreKF"); return (el ? el.textContent : tile.textContent).trim(); };
+        const placeTile     = (tile, slot) => {
+            if (!tile || !slot || !isSlotEmpty(slot)) return;
+            const letter = getTileLetter(tile);
+            if (!letter) return;
+            slot.textContent = letter;
+            slot.classList.add("reponse__lettre--pleineKF");
+            slot.dataset.tileId = tile.dataset.tileId;
+            setTileUsed(tile, true);
+            if (isAnswerComplete()) setTimeout(validateAnswer, 120);
+        };
+        const clearSlot = slot => {
+            if (!slot || isSlotEmpty(slot) || slot.dataset.hintKF) return;
+            const tile = tilesWrap.querySelector(`.tuileKF[data-tile-id="${CSS.escape(slot.dataset.tileId || "")}"]`);
+            if (tile) setTileUsed(tile, false);
+            slot.textContent = "_";
+            slot.classList.remove("reponse__lettre--pleineKF");
+            delete slot.dataset.tileId;
+        };
+
+        refreshSlots();
+        document.addEventListener("word:rendered", () => { refreshSlots(); updateHintButton(); });
+
+        tilesWrap.addEventListener("click", e => {
+            if (gs.lock) return;
+            const tile = e.target.closest(".tuileKF");
+            if (!tile) return;
+            const slot = findEmpty();
+            if (!slot) return;
+            playSound("click");
+            placeTile(tile, slot);
+        });
+
+        answerLine.addEventListener("click", e => {
+            if (gs.lock) return;
+            const slot = e.target.closest(".reponse__lettreKF");
+            if (!slot || isSlotEmpty(slot)) return;
+            playSound("click");
+            clearSlot(slot);
+        });
+
+        const clearBtn   = document.getElementById("btn-clear");
+        const shuffleBtn = document.getElementById("btn-mix");
+        const hintBtn    = document.getElementById("btn-hint");
+
+        if (clearBtn)   clearBtn.addEventListener("click",   () => { if (!gs.lock) { playSound("click"); slots.forEach(clearSlot); } });
+        if (shuffleBtn) shuffleBtn.addEventListener("click", () => { if (!gs.lock) shuffleTiles(); });
+        if (hintBtn)    hintBtn.addEventListener("click",    () => { if (!gs.lock && !gs.hintUsed) applyHint(); });
+    }
+
+    // ─────────────────────────────────────────────
+    // Vies / Fin de partie
+    // ─────────────────────────────────────────────
+    function loseLife() {
+        gs.mistakes += 1;
+        gs.lives = Math.max(0, gs.lives - 1);
+        updateHeartsUI();
+        if (gs.lives <= 0) { endGame(false); return true; }
+        return false;
+    }
+
+    function endGame(isWin) {
+        stopTimer();
+        gs.lock = true;
+
+        const meta   = loadMeta();
+        const player = meta.player || "Karlvin";
+        const last   = {
+            player, score: gs.score, win: !!isWin,
+            found: gs.found, target: gs.targetFound,
+            lives: gs.lives, maxLives: gs.maxLives,
+            date: new Date().toISOString(),
+        };
+        saveLast(last);
+        addScoreEntry({ ...last });
+
+        toast(isWin ? "🎉 Victoire !" : "💀 Défaite...", isWin ? "success" : "error", 800);
+        setTimeout(() => showPage(isWin ? "victoire" : "defaite"), 900);
+    }
+
+    // ─────────────────────────────────────────────
+    // Nouvelle manche
+    // ─────────────────────────────────────────────
+    function startNewRound() {
+        if (gs.lives <= 0 || gs.found >= gs.targetFound) return;
+        gs.lock      = false;
+        gs.hintUsed  = false;
+        gs.roundNum += 1;
+        pickDifficultyForRound();
+        updateBackgroundByDifficulty();
+        updateParticlesByDifficulty();
+        gs.timePerRound = { easy: 15, medium: 25, hard: 35 }[gs.currentDifficulty] || 15;
+        const word = pickRandomWord(gs.currentDifficulty);
+        gs.currentWord = word;
+        gs.currentHint = gameData.hints[word] || null;
+        renderWord(word);
+        startTimer(timeUp);
+        updateHUD();
+        updateHintButton();
+    }
+
+    // ─────────────────────────────────────────────
+    // Chargement des mots
+    // ─────────────────────────────────────────────
+    async function loadGameJSON() {
+        if (_gameDataLoaded) return;
+        const apiUrl = window.UNICORN_API_WORDS || "/jeux/api/mots";
+        try {
+            const res  = await fetch(apiUrl, { cache: "no-store" });
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            const data = await res.json();
+            if (data.regles) {
+                gameData.regles.easy   = data.regles.easy   ?? gameData.regles.easy;
+                gameData.regles.medium = data.regles.medium ?? gameData.regles.medium;
+                gameData.regles.hard   = data.regles.hard   ?? gameData.regles.hard;
+            }
+            const mots = data.mots || {};
+            gameData.mots.easy   = Array.isArray(mots.facile)    ? mots.facile    : [];
+            gameData.mots.medium = Array.isArray(mots.moyen)     ? mots.moyen     : [];
+            gameData.mots.hard   = Array.isArray(mots.difficile) ? mots.difficile : [];
+            if (data.indices && typeof data.indices === "object") gameData.hints = data.indices;
+            _gameDataLoaded = true;
+        } catch (err) {
+            console.error("Erreur chargement mots :", err);
+            try {
+                const res2 = await fetch("/config.json", { cache: "no-store" });
+                if (res2.ok) {
+                    const data2 = await res2.json();
+                    const mots2 = data2.mots || {};
+                    gameData.mots.easy   = Array.isArray(mots2.facile)    ? mots2.facile    : [];
+                    gameData.mots.medium = Array.isArray(mots2.moyen)     ? mots2.moyen     : [];
+                    gameData.mots.hard   = Array.isArray(mots2.difficile) ? mots2.difficile : [];
+                    if (data2.indices) gameData.hints = data2.indices;
+                    _gameDataLoaded = true;
+                    return;
+                }
+            } catch (_) {}
+            gameData.mots.easy   = ["CHAT", "MER", "LUNE", "FLEUR", "ARBRE"];
+            gameData.mots.medium = ["LICORNE", "CRISTAL", "MYSTERE", "SABLIER"];
+            gameData.mots.hard   = ["ALCHIMIE", "TENEBRES", "DRAGON"];
+            _gameDataLoaded = true;
+        }
+    }
+
+    // ─────────────────────────────────────────────
+    // Démarrer une partie
+    // ─────────────────────────────────────────────
+    async function startGame() {
+        await loadGameJSON();
+
+        // Reset complet
+        gs.score    = 0;
+        gs.found    = 0;
+        gs.maxLives = 5;
+        gs.lives    = gs.maxLives;
+        gs.lock     = false;
+        gs.combo    = 0;
+        gs.roundNum = 0;
+        gs.mistakes = 0;
+        gs.hintUsed = false;
+        gs.usedWords = [];
+
+        setupRoundCounter();
+        renderHearts();
+        updateHUD();
+        updateBackgroundByDifficulty();
+        updateParticlesByDifficulty();
+
+        if (!_gameSetupDone) {
+            setupPlacementOnce();
+            setupKeyboardInput();
+
+            const soundBtn = document.querySelector(".actions__btn--soundKF");
+            if (soundBtn) {
+                soundBtn.addEventListener("click", e => { e.preventDefault(); setSoundEnabled(!gs.soundEnabled); });
+            }
+            _gameSetupDone = true;
+        }
+
+        startNewRound();
+        if (gs.soundEnabled) playBackgroundMusic();
+    }
+
+    // ─────────────────────────────────────────────
+    // Écrans de fin (victoire / défaite)
+    // ─────────────────────────────────────────────
+    function renderEndScreen(prefix) {
+        const last = loadLast();
+        const best = bestScore();
+
+        const set = (id, val) => {
+            const el = document.getElementById(`${prefix}-${id}`);
+            if (el) el.textContent = val;
+        };
+        set("best-score", `${best} pts`);
+        set("player",     last.player    || loadMeta().player || "Karlvin");
+        set("last-score", `${last.score  ?? 0} pts`);
+        set("found",      `${last.found  ?? 0}/${last.target ?? 10}`);
+
+        const livesBox = document.getElementById(`${prefix}-lives`);
+        if (livesBox) {
+            const maxLives  = last.maxLives ?? 5;
+            const livesLeft = last.lives    ?? 0;
+            livesBox.innerHTML = "";
+            for (let i = 0; i < maxLives; i++) {
+                const img = document.createElement("img");
+                img.className = "hud__coeurKF" + (i >= livesLeft ? " hud__coeur--perduKF" : "");
+                img.src = "/images/Karlvin/vie.png";
+                img.alt = i < livesLeft ? "vie" : "vie perdue";
+                livesBox.appendChild(img);
+            }
+        }
+    }
+
+    // ─────────────────────────────────────────────
+    // Scoreboard
+    // ─────────────────────────────────────────────
+    function renderScoreboard() {
+        const body   = document.getElementById("scorebody");
+        if (!body) return;
+        const apiUrl = window.UNICORN_API_SCORES || null;
+        if (apiUrl) {
+            fetch(apiUrl)
+                .then(r => r.json())
+                .then(scores => _fillScoreTable(body, Array.isArray(scores) && scores.length
+                    ? scores.map(s => ({ player: s.player, score: s.score, date: s.playedAt }))
+                    : loadScores()))
+                .catch(() => _fillScoreTable(body, loadScores()));
+        } else {
+            _fillScoreTable(body, loadScores());
+        }
+    }
+
+    function _fillScoreTable(body, scores) {
+        const me = (loadMeta().player || "").toUpperCase();
+        body.innerHTML = "";
+        if (!scores.length) {
+            body.innerHTML = `<tr class="scoreboard__trKF">
+                <td class="scoreboard__tdKF scoreboard__rankKF">—</td>
+                <td class="scoreboard__tdKF scoreboard__nameKF">Aucun score</td>
+                <td class="scoreboard__tdKF scoreboard__ptsKF">0</td>
+            </tr>`;
+            return;
+        }
+        scores.forEach((s, i) => {
+            const isMe = String(s.player || "").toUpperCase() === me && me.length > 0;
+            const tr   = document.createElement("tr");
+            tr.className = "scoreboard__trKF";
+            tr.innerHTML = `
+                <td class="scoreboard__tdKF scoreboard__rankKF">${i === 0 ? "#1" : i + 1 + "e"}</td>
+                <td class="scoreboard__tdKF scoreboard__nameKF ${isMe ? "scoreboard__name--meKF" : ""}">${escapeHTML(s.player || "Joueur")}</td>
+                <td class="scoreboard__tdKF scoreboard__ptsKF">${Number(s.score || 0)}</td>`;
+            body.appendChild(tr);
+        });
+    }
+
+    function escapeHTML(str) {
+        return String(str)
+            .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;").replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+    }
+
+    // ─────────────────────────────────────────────
+    // Objet 3D (médaille / ticket)
+    // ─────────────────────────────────────────────
+    function init3DObject(id) {
+        const ticket = document.getElementById(id);
+        if (!ticket || ticket.dataset.initDone) return;
+        ticket.dataset.initDone = "1";
+
+        let dragging = false, lastX = 0, lastY = 0, rotX = 0, rotY = 0;
+        const clamp  = (v, min, max) => Math.max(min, Math.min(max, v));
+        const apply  = () => { ticket.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`; };
+
+        ticket.addEventListener("pointerdown", e => {
+            dragging = true; lastX = e.clientX; lastY = e.clientY;
+            ticket.setPointerCapture(e.pointerId);
+        });
+        ticket.addEventListener("pointermove", e => {
+            if (!dragging) return;
+            rotY += (e.clientX - lastX) * 0.35;
+            rotX -= (e.clientY - lastY) * 0.35;
+            rotX  = clamp(rotX, -85, 85);
+            lastX = e.clientX; lastY = e.clientY;
+            apply();
+        });
+        const endDrag = () => { dragging = false; };
+        ticket.addEventListener("pointerup",           endDrag);
+        ticket.addEventListener("pointercancel",       endDrag);
+        ticket.addEventListener("lostpointercapture",  endDrag);
+        ticket.addEventListener("dblclick", () => { rotX = 0; rotY = 0; apply(); });
+        apply();
+    }
+
+    // ─────────────────────────────────────────────
+    // Sons
+    // ─────────────────────────────────────────────
+    const bgMusic = { audio: null, inited: false };
+
+    function initBackgroundMusic() {
+        if (bgMusic.inited) return;
+        bgMusic.inited = true;
+        const a = new Audio("/assets/sound/Karlvin/musique.mp3");
+        a.loop = true; a.preload = "auto"; a.volume = 0.4;
+        bgMusic.audio = a;
+    }
+
+    function playBackgroundMusic() {
+        if (!bgMusic.audio) initBackgroundMusic();
+        if (!gs.soundEnabled) return;
+        bgMusic.audio.play().catch(() => {});
+    }
+    function pauseBackgroundMusic() { if (bgMusic.audio) bgMusic.audio.pause(); }
+
+    const soundEffects = {
+        timeout: new Audio("/assets/sound/Karlvin/timeout.mp3"),
+        error:   new Audio("/assets/sound/Karlvin/error.mp3"),
+        success: new Audio("/assets/sound/Karlvin/ok.mp3"),
+    };
+    Object.values(soundEffects).forEach(a => { a.preload = "auto"; a.volume = 0.6; });
+
+    let audioContext = null;
+    function getAudioContext() {
+        if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        return audioContext;
+    }
+
+    function playTap(ctx) {
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(320, now);
+        osc.frequency.exponentialRampToValueAtTime(180, now + 0.08);
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.22, now + 0.005);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
+        osc.connect(gain); gain.connect(ctx.destination);
+        osc.start(now); osc.stop(now + 0.13);
+    }
+
+    function playSound(name) {
+        if (!gs.soundEnabled) return;
+        try {
+            const ctx = getAudioContext();
+            if (ctx.state === "suspended") ctx.resume();
+            if (name === "click") playTap(ctx);
+            if (soundEffects[name]) { soundEffects[name].currentTime = 0; soundEffects[name].play().catch(() => {}); }
+        } catch (e) { console.error("Erreur audio:", e); }
+    }
+
+    function updateSoundButtonUI() {
+        const btn = document.querySelector(".actions__btn--soundKF");
+        if (!btn) return;
+        const icon    = btn.querySelector("i");
+        const enabled = !!gs.soundEnabled;
+        btn.classList.toggle("is-mutedKF", !enabled);
+        btn.setAttribute("aria-pressed", enabled ? "true" : "false");
+        btn.setAttribute("aria-label",   enabled ? "Son activé" : "Son coupé");
+        if (icon) icon.className = enabled ? "fa-solid fa-volume-high" : "fa-solid fa-volume-xmark";
+    }
+
+    function setSoundEnabled(en) {
+        gs.soundEnabled = !!en;
+        saveMeta({ soundEnabled: gs.soundEnabled });
+        gs.soundEnabled ? playBackgroundMusic() : pauseBackgroundMusic();
+        updateSoundButtonUI();
+    }
+
+    function setupAudioUnlock() {
+        const unlock = () => {
+            initBackgroundMusic();
+            if (gs.soundEnabled) playBackgroundMusic();
+            window.removeEventListener("pointerdown", unlock, true);
+            window.removeEventListener("keydown",     unlock, true);
+        };
+        window.addEventListener("pointerdown", unlock, true);
+        window.addEventListener("keydown",     unlock, true);
+    }
+
+    // ─────────────────────────────────────────────
+    // Boot
+    // ─────────────────────────────────────────────
+    document.addEventListener("DOMContentLoaded", () => {
+        const meta = loadMeta();
+        if (typeof meta.soundEnabled === "boolean") gs.soundEnabled = meta.soundEnabled;
+
+        initBackgroundMusic();
+        setupAudioUnlock();
+        updateSoundButtonUI();
+
+        // Landing : pré-remplir le nom
+        const input = document.getElementById("playerInput");
+        if (input) input.value = meta.player || "Karlvin";
+
+        // Bouton Jouer
+        const btnPlay = document.getElementById("btnPlay");
+        if (btnPlay) {
+            btnPlay.addEventListener("click", () => {
+                const player = (input?.value || "").trim() || "Karlvin";
+                saveMeta({ player, soundEnabled: gs.soundEnabled });
+                showPage("jeu");
+            });
+        }
+
+        // Bouton Règles
+        const btnRules = document.getElementById("btnRules");
+        if (btnRules) btnRules.addEventListener("click", () => showPage("regles"));
+
+        // Bouton Son landing
+        const btnSoundLanding = document.getElementById("btnSoundLanding");
+        const soundIcon       = document.getElementById("soundIcon");
+        const soundLabel      = document.getElementById("soundLabel");
+
+        const renderLandingSound = () => {
+            const en = gs.soundEnabled;
+            if (btnSoundLanding) btnSoundLanding.setAttribute("aria-pressed", en ? "true" : "false");
+            if (soundIcon)       soundIcon.textContent = en ? "🔊" : "🔇";
+            if (soundLabel)      soundLabel.textContent = en ? "Son : ON" : "Son : OFF";
+        };
+        renderLandingSound();
+
+        if (btnSoundLanding) {
+            btnSoundLanding.addEventListener("click", () => {
+                setSoundEnabled(!gs.soundEnabled);
+                renderLandingSound();
+            });
+        }
+    });
+
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep:*)",
+      "Bash(php c:/dev/landing_page/bin/console cache:clear --env=dev)",
+      "Bash(php c:/dev/landing_page/bin/console cache:warmup --env=dev)"
+    ]
+  }
+}
