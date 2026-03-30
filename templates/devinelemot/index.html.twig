@@ -2,13 +2,18 @@
 
 {% block title %}Devine le Mot - Jeu{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/alexis_style.css') }}">
+{% endblock %}
+
 {% block body %}
-<div id="game-viewport">
+<div id="game-viewportAB">
 
     {# --- ÉTAPE 0 : ACCUEIL --- #}
     <section id="section-accueil" class="section-jeuAB active-AB">
         <div class="game-containerAB">
-            <img src="{{ asset('images/titrefinal2.png') }}" alt="Devine le Mot" class="game-titleAB">
+            <img src="{{ asset('images/Alexis/titrefinal2.png') }}" alt="Devine le Mot" class="game-titleAB">
             <div class="btn-containerAB">
                 <button class="blink-buttonAB">Press ESPACE pour commencer</button>
             </div>
@@ -16,7 +21,8 @@
     </section>
 
     {# --- ÉTAPE 1 : RÈGLES --- #}
-    <section id="section-regles" class="section-jeuAB page-reglesAB">
+    {# CORRECTION : L'ID doit être section-regles pour correspondre au script JS #}
+    <section id="section-regles" class="section-reglesAB page-reglesAB section-jeuAB">
         <div class="regles-wrapperAB">
             <div class="regles-cardAB">
                 <div class="regles-sectionAB">
@@ -44,6 +50,7 @@
     </section>
 
     {# --- ÉTAPE 2 : LE JEU --- #}
+    {# CORRECTION : L'ID doit être section-jeu pour correspondre au script JS #}
     <section id="section-jeu" class="section-jeuAB page-jeuAB">
         <header class="jeu-hudAB">
             <div class="vies-containerAB" id="vies-boxAB">
@@ -61,7 +68,7 @@
         <main class="ecran-splitAB">
             <section class="coteAB gaucheAB">
                 <div class="personnage-containerAB">
-                    <img src="{{ asset('asset/.gif/licorne.gif') }}" alt="Licorne" class="pixel-spriteAB licorne-animAB">
+                    <img src="{{ asset('images/Alexis/.gif/licorne.gif') }}" alt="Licorne" class="pixel-spriteAB licorne-animAB">
                 </div>
                 <div class="interaction-zoneAB">
                     <div class="bulle-roseAB" id="bulle-indiceAB">Chargement...</div>
@@ -72,7 +79,7 @@
             <section class="coteAB droiteAB">
                 <div class="sorcier-containerAB">
                     <div class="bulle-dialogueAB" id="bulle-sorcierAB">Tu ne trouveras pas !</div>
-                    <img src="{{ asset('asset/.gif/Sorcier.gif') }}" id="image-sorcierAB" class="pixel-spriteAB">
+                    <img src="{{ asset('images/Alexis/.gif/Sorcier.gif') }}" id="image-sorcierAB" class="pixel-spriteAB">
                 </div>
                 <div class="interaction-zoneAB">
                     <input type="text" id="input-reponseAB" class="bulle-roseAB input-reponseAB" placeholder="Tape ta réponse..." autocomplete="off">
@@ -88,14 +95,14 @@
         <div id="overlay-game-overAB" class="overlay-ecranAB">
             <div class="overlay-contenuAB">
                 <h1>GAME OVER</h1>
-                <img src="{{ asset('asset/.gif/Licorne qui pleure.gif') }}" class="licorne-mortAB">
+                <img src="{{ asset('images/Alexis/.gif/Licorne qui pleure.gif') }}" class="licorne-mortAB">
                 <p>Press ESPACE pour recommencer</p>
             </div>
         </div>
 
         <div id="overlay-you-winAB" class="overlay-ecranAB">
             <div class="overlay-contenuAB">
-                <img src="{{ asset('images/écran victoire.png') }}" class="trophee-winAB">
+                <img src="{{ asset('images/Alexis/écran victoire.png') }}" class="trophee-winAB">
                 <p>Félicitations ! Le sorcier est vaincu.</p>
                 <p class="instructionAB">Press ESPACE pour rejouer</p>
             </div>
@@ -108,6 +115,7 @@
    GESTION DE LA NAVIGATION (MODALES)
 ----------------------------------------------------- */
 let etapeActuelle = 0; 
+// On récupère les éléments APRÈS le chargement du DOM pour être sûr
 const sections = [
     document.getElementById('section-accueil'),
     document.getElementById('section-regles'),
@@ -116,32 +124,52 @@ const sections = [
 
 document.addEventListener("keydown", (event) => {
     if (event.code === "Space") {
-        // Si on est sur un overlay (Win/GameOver), on reload la page pour reset
-        if (document.getElementById('overlay-game-overAB').style.display === "flex" || 
-            document.getElementById('overlay-you-winAB').style.display === "flex") {
-            window.location.reload();
-            return;
-        }
+        // Empêche le défilement si on n'est pas dans l'input
+        if (event.target.tagName !== 'INPUT') {
+            
+            // Gestion des Overlays
+            const gameOver = document.getElementById('overlay-game-overAB');
+            const win = document.getElementById('overlay-you-winAB');
 
-        // Navigation entre les 3 sections principales
-        if (etapeActuelle < 2) {
-            event.preventDefault();
-            sections[etapeActuelle].classList.remove('active-AB');
-            etapeActuelle++;
-            sections[etapeActuelle].classList.add('active-AB');
+            if ((gameOver && gameOver.style.display === "flex") || 
+                (win && win.style.display === "flex")) {
+                window.location.reload();
+                return;
+            }
 
-            if (etapeActuelle === 2) {
-                preparerPartie();
-                chargerMot();
-                demarrerTimer();
-                document.getElementById('input-reponseAB').focus();
+            // Navigation entre les étapes
+            if (etapeActuelle < 2) {
+                event.preventDefault();
+                
+                // On cache la section actuelle
+                if(sections[etapeActuelle]) {
+                    sections[etapeActuelle].classList.remove('active-AB');
+                }
+
+                etapeActuelle++;
+
+                // On affiche la suivante
+                if(sections[etapeActuelle]) {
+                    sections[etapeActuelle].classList.add('active-AB');
+                }
+
+                // Initialisation du jeu si on arrive à l'étape 2
+                if (etapeActuelle === 2) {
+                    preparerPartie();
+                    chargerMot();
+                    demarrerTimer();
+                    setTimeout(() => {
+                         const input = document.getElementById('input-reponseAB');
+                         if(input) input.focus();
+                    }, 100);
+                }
             }
         }
     }
 });
 
 /* -----------------------------------------------------
-   BASE DE DONNÉES ET LOGIQUE JEU
+   LOGIQUE JEU (Le reste de ton code est identique)
 ----------------------------------------------------- */
 const baseDeMots = {
     facile: [
@@ -285,11 +313,4 @@ document.getElementById('btn-passerAB').onclick = changerIndice;
 document.getElementById('btn-passer-motAB').onclick = passerMot;
 document.getElementById('input-reponseAB').onkeypress = (e) => { if (e.key === 'Enter') verifierReponse(); };
 </script>
-
-<style>
-/* CSS CRITIQUE POUR LES SECTIONS */
-.section-jeuAB { display: none; }
-.active-AB { display: flex !important; }
-.overlay-ecranAB { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 5000; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
-</style>
 {% endblock %}
