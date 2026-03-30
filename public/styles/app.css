@@ -718,6 +718,31 @@ body {
     align-items: center;
 }
 
+.section-jeuAB {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.active-AB {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#etape-reglesAB { 
+  background-color: #074151; 
+}
+
+#etape-jeuAB { 
+  background-color: #000; 
+}
+
 /* =====================================================
    ÉCRAN D'ACCUEIL
 ===================================================== */
