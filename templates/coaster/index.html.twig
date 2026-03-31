@@ -1,20 +1,43 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Hello CoasterController!{% endblock %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Coaster - Accueil</title>
+    
+    {# Appel de ton CSS EM qui est dans public/ #}
+    <link rel="stylesheet" href="{{ asset('starcoaster.css') }}">
+</head>
+<body>
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <main class="hero-EM" id="menu-accueil">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <div class="brand-EM">
+            <img src="{{ asset('images/elodie/licorne.png') }}" alt="Icone Wagon" class="brand-logo-EM">
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/noctyy/Desktop/Projet-des-licornes/src/Controller/CoasterController.php</code></li>
-        <li>Your template at <code>/Users/noctyy/Desktop/Projet-des-licornes/templates/coaster/index.html.twig</code></li>
-    </ul>
-</div>
-{% endblock %}
+        <div class="hero-content-EM">
+            <img src="{{ asset('images/elodie/tete-de-licorne-2.png') }}" alt="Star Coaster Logo" class="hero-logo-EM">
+        </div>
+
+        <section class="glass-panel-EM">
+            <p class="g-title-EM">Bienvenue dans le jeu des montagnes Russes !</p>
+            <p class="g-mission-EM"><strong>Ta mission :</strong></p>
+            <p class="g-text-EM">Guide la licorne jusqu'au bout du parcours...</p>
+            <p class="g-text-EM">Attention : ne la laisse surtout pas tomber !</p>
+        </section>
+
+        <button class="bulle-jouer-EM" onclick="window.location.href='{{ path('app_game') }}'">
+            JOUER
+        </button>
+
+    </main>
+
+    <canvas id="gameCanvas" class="canvas-game-EM" style="display:none;"></canvas>
+
+    {# Scripts pour les effets et ton fichier JS #}
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="{{ asset('montagnes.js') }}"></script>
+
+</body>
+</html>

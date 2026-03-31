@@ -15,4 +15,12 @@ final class CoasterController extends AbstractController
             'controller_name' => 'CoasterController',
         ]);
     }
+
+    // AJOUTE CETTE PARTIE ICI :
+    #[Route('/jouer', name: 'app_game')]
+    public function jouer(): Response
+    {
+        // Cette ligne va chercher le fichier templates/coaster/game.html.twig
+        return $this->render('coaster/game.html.twig');
+    }
 }
