@@ -2482,6 +2482,7 @@ body * {
 .hud__ligneKF {
     margin: 0;
     font-size: 34px;
+    color: white;
     font-weight: 800;
     line-height: 1.05;
     font-family: "Nunito", system-ui, sans-serif;
@@ -2802,6 +2803,7 @@ body * {
 .minuteur__texteKF {
     font-size: 25px;
     font-weight: 600;
+    color: white;
     white-space: nowrap;
     font-family: "Nunito", system-ui, sans-serif;
 }
