@@ -9,3 +9,29 @@
 
 controllers:
     resource: routing.controllers
+
+
+controllers:
+
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+
+
+home:
+  path: /
+  controller: App\Controller\HomeController::index
+  methods: [GET, POST]
+
+
+  FAQ:
+  path: /FAQ
+  controller: App\Controller\FAQController::index
+  methods: [GET, POST]
+
+Formation:
+  path: /Formation
+  controller: App\Controller\FormationController::index
+  methods: [GET, POST]

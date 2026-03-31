@@ -18,64 +18,45 @@ body {
 /* ============== LANDING DEBUT========= */
 /* ===================================== */
 
-/*
+/* ===================================== */
+/* ============== LANDING =============== */
+/* ===================================== */
+
 :root {
-    --pink: #e60b62;
-    --pink-dark: #c80a55;
+    --pink1: #e60b62;
+    --pink-dark1: #c80a55;
 
-    --card-bg: rgba(255, 255, 255, 0.88);
-    --shadow: 0 10px 0 rgba(0, 0, 0, 0.14);
-    --radius: 24px;
-
-    --right-col: 420px;
-    --gap: 18px;
-    --pad: 28px;
-
-    --focus: 0 0 0 3px rgba(136, 124, 129, 0.22);
+    --card-bg1: rgba(255, 255, 255, 0.88);
+    --shadow1: 10px 5px 0 rgba(0, 0, 0, 0.14);
+    --radius1: 24px;
 }
 
+/* RESET */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
     margin: 0;
-    --pink: #e60b62;
-    --pink-dark: #c80a55;
-    --card-bg: rgba(255, 255, 255, 0.86);
-    --shadow: 0 10px 0 rgba(0, 0, 0, 0.15);
-    --radius: 22px;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 html,
 body {
     height: 100%;
-    margin: 0;
     font-family: "Irish Grover", system-ui, sans-serif;
 }
 
+/* 🌈 BACKGROUND */
 body {
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
+
+    background: url('/images/fond-landing.png') no-repeat center center;
+    background-size: cover;
 }
 
-.bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    z-index: 0;
-}
-
-.right-col {
+/* COLONNE DROITE */
+.right-col1 {
     position: absolute;
     top: 0;
     right: 0;
@@ -86,12 +67,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 30px 30px 0px;
+    padding: 30px;
 
     z-index: 2;
 }
 
-.iles {
+/* ZONE ÎLES */
+.iles1 {
     position: absolute;
     top: 0;
     left: 0;
@@ -102,220 +84,132 @@ body {
     z-index: 1;
 }
 
-.card {
-    background: var(--card-bg);
-    border: 3px solid var(--pink);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 18px 18px;
+/* CARTES */
+.card1 {
+    background: var(--card-bg1);
+    border: 3px solid var(--pink1);
+    border-radius: var(--radius1);
+    box-shadow: var(--shadow1);
+    padding: 18px;
 }
 
-.card-title h1 {
-    margin: 6px 0;
+/* TITRE */
+.card-title1 h1 {
     text-align: center;
-    color: var(--pink);
-    font-family: "Irish Grover", system-ui, sans-serif;
-    font-weight: 800;
+    color: var(--pink1);
     font-size: 30px;
-    line-height: 1.1;
 }
 
-.card-form {
-    height: 350px;
-}
-
-.card-form h2 {
-    margin: 4px 0 12px;
+/* FORMULAIRE */
+.card-form1 h2 {
     text-align: center;
-    color: var(--pink);
+    color: var(--pink1);
     font-size: 28px;
-    font-weight: 800;
-    font-family: "Irish Grover", system-ui, sans-serif;
 }
 
-form {
+.form1 {
     display: grid;
     gap: 10px;
 }
 
-label {
+.field1 {
     display: grid;
     grid-template-columns: 72px 1fr;
-    align-items: center;
     gap: 10px;
-    font-family: "Irish Grover", system-ui, sans-serif;
 }
 
-label span {
-    color: var(--pink);
-    font-weight: 700;
+.label-text1 {
+    color: var(--pink1);
+    font-weight: bold;
 }
 
+/* INPUT */
 input {
     height: 34px;
     border-radius: 10px;
     border: 2px solid rgba(230, 11, 98, 0.35);
     padding: 0 10px;
+}
+
+/* BOUTON */
+
+button {
+    border: none;
     outline: none;
-    background: white;
+    background: none;
+    font-family: inherit;
 }
 
-input:focus {
-    border-color: var(--pink);
-    box-shadow: 0 0 0 3px rgba(230, 11, 98, 0.2);
-}
-
-.btn {
-    justify-self: center;
+.btn1 {
     margin-top: 6px;
     padding: 8px 22px;
-    border: none;
     border-radius: 999px;
-    background: var(--pink);
+    background: var(--pink1);
     color: white;
-    font-weight: 800;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
 }
 
-.btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
-}
-
-.big-btn {
-    border: none;
-    border-radius: 999px;
-    padding: 18px 28px;
-    background: var(--pink);
+/* GROS BOUTON */
+.big-btn1 {
+    border-radius: 50px;
+    padding: 12px;
+    background: var(--pink1);
     color: white;
-
-    font-family: "Irish Grover", system-ui, sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-
+    font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.15);
-
-    transition: all 0.2s ease;
 }
 
-.big-btn:hover {
-    background: var(--pink-dark);
-    transform: scale(1.05);
-}
-
-.big-btn:active {
-    transform: translateY(3px);
-    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
-}
-
-.msg {
-    margin: 10px 0 0;
-    text-align: center;
-    color: #333;
-    font-weight: 600;
-}
-
-.egg {
+/* EASTER EGG */
+.egg1 {
     display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 12px;
-    align-items: center;
+    grid-template-columns: 80px 1fr;
+    gap: 10px;
 }
 
-.egg img {
-    width: 50px;
-    height: 76px;
-    object-fit: cover;
-    border-radius: 16px;
+.egg1 img {
+    width: 60px;
+    border-radius: 10px;
 }
 
-.card-egg h3 {
-    margin: 0;
-    color: var(--pink);
-    font-size: 28px;
-    font-weight: 900;
-}
-
-.card-egg p {
-    margin: 6px 0 0;
-    color: var(--pink);
-    font-weight: 700;
-}
-
-.island {
+/* ÎLES */
+.island1 {
     position: absolute;
-    height: auto;
-    user-select: none;
-    -webkit-user-drag: none;
-    filter: drop-shadow(0 12px 10px rgba(0, 0, 0, 0.25));
     transition: 0.2s;
 }
 
-.island:hover {
-    transform: scale(1.05) translateY(-5px);
-    cursor: pointer;
+.island1:hover {
+    transform: scale(1.05);
 }
 
-.island-roue {
-    top: 6%;
-    left: 10%;
-    width: 200px;
-    opacity: 0.5;
+/* POSITIONS */
+.island-roue1 { top: 6%; left: 10%; width: 200px; }
+.island-devine1 { top: 8%; left: 48%; width: 220px; }
+.island-pinata1 { top: 32%; left: 34%; width: 220px; }
+.island-scrabble1 { top: 42%; left: 4%; width: 420px; }
+.island-star1 { top: 46%; left: 52%; width: 480px; }
+
+.island-link1 {
+    display: contents;
 }
 
-.island-devine {
-    top: 8%;
-    left: 48%;
-    width: 220px;
-    opacity: 0.5;
+.island-link1 img {
+    display: block;
 }
 
-.island-pinata {
-    top: 32%;
-    left: 34%;
-    width: 220px;
-    opacity: 0.5;
-}
-
-.island-scrabble {
-    top: 42%;
-    left: 4%;
-    width: 420px;
-    opacity: 0.5;
-}
-
-.island-star {
-    top: 46%;
-    left: 52%;
-    width: 480px;
-}
-
+/* RESPONSIVE */
 @media (max-width: 900px) {
-    .right-col {
+    .right-col1 {
         position: relative;
         width: 100%;
-        min-height: auto;
     }
 
-    .iles {
+    .iles1 {
         position: relative;
         width: 100%;
-        height: 55vh;
+        height: 50vh;
     }
 }
-
-@media (max-width: 520px) {
-    label {
-        grid-template-columns: 86px 1fr;
-    }
-
-    .big-btn {
-        font-size: 22px;
-    }
-}
-*/
 
 /* ===================================== */
 /* ============== LANDING FIN=========== */

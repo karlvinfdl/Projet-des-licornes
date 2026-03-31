@@ -4,19 +4,31 @@
 
 {% block body %}
 
-{# Fond image #}
-<div class="bg1" aria-hidden="true"></div>
-
 <!-- ===================== -->
 <!-- ÎLES À GAUCHE -->
 <!-- ===================== -->
 <div class="iles1" aria-label="Jeux">
-  <img class="island1 island-roue1" src="{{ asset('images/ile-axel1.png') }}" alt="Roue Magique" />
-  <img class="island1 island-devine1" src="{{ asset('images/ile-alexis1.png') }}" alt="Devine le mot" />
-  <img class="island1 island-pinata1" src="{{ asset('images/ile-kyllian1.png') }}" alt="Pinata" />
-  <img class="island1 island-scrabble1" src="{{ asset('images/ile-karlvin1.png') }}" alt="Scrabble des licornes" />
-  <img class="island1 island-star1" src="{{ asset('images/ile-elodie1.png') }}" alt="Star Coaster" />
+  <a href="{{ path('app_wheel') }}" class="island-link1">
+    <img class="island1 island-roue1" src="{{ asset('images/ile-axel1.png') }}" alt="Roue Magique" />
+  </a>
+
+  <a href="{{ path('devinelemot') }}" class="island-link1">
+    <img class="island1 island-devine1" src="{{ asset('images/ile-alexis1.png') }}" alt="Devine le mot" />
+  </a>
+
+  <a href="{{ path('pinata') }}" class="island-link1">
+    <img class="island1 island-pinata1" src="{{ asset('images/ile-kyllian1.png') }}" alt="Pinata" />
+  </a>
+
+  <a href="{{ path('jeux_index') }}" class="island-link1">
+    <img class="island1 island-scrabble1" src="{{ asset('images/ile-karlvin1.png') }}" alt="Scrabble des licornes" />
+  </a>
+
+  <a href="{{ path('coaster') }}" class="island-link1">
+    <img class="island1 island-star1" src="{{ asset('images/ile-elodie1.png') }}" alt="Star Coaster" />
+  </a>
 </div>
+
 
 <!-- ===================== -->
 <!-- COLONNE DROITE -->
@@ -25,37 +37,37 @@
 
   <!-- Carte titre -->
   <section class="card1 card-title1">
-    <h1>Bienvenue à la<br>Fête des Licornes !</h1>
+    <h1 class="title1">Bienvenue à la<br>Fête des Licornes !</h1>
   </section>
 
   <!-- Formulaire -->
   <section class="card1 card-form1">
-    <h2>Formulaire</h2>
+    <h2 class="subtitle1">Formulaire</h2>
 
     <form method="post" class="form1">
       <label class="field1">
-        <span>Nom :</span>
+        <span class="label-text1">Nom :</span>
         <input name="nom" type="text" autocomplete="family-name" required>
       </label>
 
       <label class="field1">
-        <span>Prénom :</span>
+        <span class="label-text1">Prénom :</span>
         <input name="prenom" type="text" autocomplete="given-name" required>
       </label>
 
       <label class="field1">
-        <span>Âge :</span>
-        <input name="age" type="number" min="0" max="120" inputmode="numeric" required>
+        <span class="label-text1">Âge :</span>
+        <input name="age" type="number" min="0" max="120" required>
       </label>
 
       <label class="field1">
-        <span>Email :</span>
+        <span class="label-text1">Email :</span>
         <input name="email" type="email" autocomplete="email" required>
       </label>
 
       <label class="field1">
-        <span>Ville :</span>
-        <input name="ville" type="text" autocomplete="address-level2" required>
+        <span class="label-text1">Ville :</span>
+        <input name="ville" type="text" required>
       </label>
 
       <button class="btn1" type="submit">Envoyer</button>
@@ -63,15 +75,19 @@
   </section>
 
   <!-- Bouton équipe -->
-  <button class="big-btn1" id="teamBtn" type="button">Découvrir l'équipe</button>
+  <button class="big-btn1" id="teamBtn1" type="button">
+    Découvrir l'équipe
+  </button>
 
   <!-- Easter egg -->
   <section class="card1 card-egg1">
     <div class="egg1">
-      <img src="{{ asset('tokyo.png') }}" alt="Tokyo">
-      <div>
-        <h3>Easter egg</h3>
-        <p>Je suis Tokyo aide moi à<br>retrouver ma famille</p>
+      <img src="{{ asset('/images/tokyo.png') }}" alt="Tokyo">
+      <div class="egg-text1">
+        <h3 class="egg-title1">Easter egg</h3>
+        <p class="egg-desc1">
+          Je suis Tokyo aide moi à<br>retrouver ma famille
+        </p>
       </div>
     </div>
   </section>
@@ -79,4 +95,3 @@
 </main>
 
 {% endblock %}
-
