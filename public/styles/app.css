@@ -3734,15 +3734,131 @@ main.jeuKF {
 /* ===== CSS ELODIE DEBUT =============== */
 /* ===================================== */
 
+/* ============================================================
+   I. CONFIGURATION DE LA PAGE (ACCUEIL) - EM
+   ============================================================ */
+/* Note : Puisque Twig est autonome, ces styles s'appliquent 
+   directement aux balises html/body de ton fichier index.html.twig */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Chemin vers ton dossier avec le E majuscule */
+    background: url('images/Elodie/cielsoleil.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* ============================================================
+   II. INTERFACE DU MENU (HERO ET BRAND) - EM
+   ============================================================ */
+.hero-EM {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
+.brand-EM {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
 
+.brand-logo-EM {
+    width: 70px;
+    height: auto;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
 
+.hero-logo-EM {
+    width: 320px;
+    height: auto;
+    margin-bottom: 25px;
+}
 
+/* ============================================================
+   III. PANNEAU D'INFORMATION (GLASSMORPHISM) - EM
+   ============================================================ */
+.glass-panel-EM {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+    padding: 35px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
 
+.g-title-EM { font-size: 24px; font-weight: 800; color: #1a1a1a; margin-bottom: 20px; }
+.g-text-EM { font-size: 17px; color: #333; margin: 8px 0; line-height: 1.5; }
 
+/* ============================================================
+   IV. ÉLÉMENTS INTERACTIFS (BOUTON JOUER) - EM
+   ============================================================ */
+.bulle-jouer-EM {
+    margin-top: 40px;
+    padding: 18px 70px;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #fff;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #cc8e00;
+    transition: all 0.1s ease-in-out;
+}
 
+.bulle-jouer-EM:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #cc8e00;
+}
 
+/* ============================================================
+   V. ZONE DE JEU (CANVAS ET DÉCOR) - EM
+   ============================================================ */
+.canvas-game-EM {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('../images/Elodie/ciel_etoile.png') repeat-x;
+    background-size: contain;
+}
+
+/* ============================================================
+   VI. INTERFACE DE JEU (HUD - SCORE ET VIES) - EM
+   ============================================================ */
+.game-stats-EM {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+}
+
+.icon-stat-EM {
+    width: 35px;
+    height: auto;
+    /* Animation légère pour les cœurs ou étoiles */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon-stat-EM:hover {
+    transform: scale(1.2);
+}
 
 
 /* ===================================== */
